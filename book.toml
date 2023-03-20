@@ -1,0 +1,9 @@
+[book]
+authors = ["Ticiano Morvan"]
+language = "es"
+multilingual = false
+src = "src"
+title = "FAMAF - LCC"
+
+[output.html]
+mathjax-support = true
