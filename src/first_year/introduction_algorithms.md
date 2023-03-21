@@ -1,5 +1,7 @@
 # Introducción a los algoritmos
 
+<!-- toc -->
+
 Esta materia busca introducir (valga la redundancia) en conceptos básicos de la algoritmia e integrar conceptos fundamentales de la programación, utilizando principalmente el lenguaje de programación [Haskell](https://haskell.org).
 
 Principalmente, se desarrollan los siguientes temas:

@@ -1,6 +1,6 @@
 # Análisis matemático I (LCC)
 
-**Nota**: Se usará lenguaje lógico y matemático para evitar obviedades o ambigüedades.
+<!-- toc -->
 
 > **Conjunto**: colección de elementos que comparten peculiaridades.
 

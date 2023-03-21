@@ -2,6 +2,8 @@
 
 [Introducción](README.md)
 
+[Historial de cambios](CHANGELOG.md)
+
 # Primer año
 
 - [Introducción a los algoritmos](./first_year/introduction_algorithms.md)
