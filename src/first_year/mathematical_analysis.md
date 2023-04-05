@@ -93,3 +93,50 @@ Si bien cualquier ecuación que contenga una incógnita a potencia \\(2\\) se pu
 2. Completar cuadrados, en el que buscaremos escribir la ecuación cuadrática de la forma:
 
 \\[(x + a) ^ 2 + b\\]
+
+## Funciones
+
+Una funcion es una regla que asigna a cada elemento de un conjunto X un unico elemento f(x) de un conjunto Y.
+
+Para f: X -> Y, El **dominio** (Dom f) es X, mientras que Y es el **conjunto de llegada** (o codominio). f(x) es la imagen de X por f, es decir, a que valor llega un elemento x a partir de f. Por el contrario, la **imagen de f** (Im f) son todos los valores que toma a partir de uno del conjunto X.  
+
+Hablamos de y = f(x) con y como variable **dependiente** y x como variable **independiente**. Para una funcion sin dominio definido, lo entendemos como el conjunto real mas extenso para el cual esta definido.
+
+### Recta
+
+Definimos una recta por y = ax + b, donde los pares (x, y) del plano satisfacen esta ecuacion.
+
+Comprendemos diversas ecuaciones a partir de la anterior:
+- x = -b/a, con y = 0
+- a = (y2 - y1)/(x2 - x1)
+- b = y - ax
+
+Y definimos dos variantes de una recta:
+- **Paralela**, aquella que tiene la misma pendiente.
+- **Perpendicular**, aquella que tiene pendiente inversa reciproca.
+
+### Desplazamientos
+Con **c > 0**
+- Verticales:
+  - Hacia arriba: f(x) + c
+  - Hacia abajo: f(x) - c
+- Horizontales:
+  - Hacia la izquierda: f(x + c)
+  - Hacia la derecha: f(x - c)
+
+### Estiramientos y reflexiones
+Un estiramiento se da con **c >= 1**, mientras que una compresion se da con **c < 0**. Ambos comparten las formulas para el plano vertical y horizontal:
+- Vertical: c * f(x)
+- Horizontal: f(c * x)
+
+Una reflexion, por otro lado, puede darse a traves de las siguientes formulas:
+- Vertical: -f(x)
+- Horizontal: f(-x)
+
+### Funciones pares e impares
+Una funcion par es aquella que satisface que f(x) = -f(x), mientras que una impar satisface que f(x) = -f(-x) => -f(x) = f(-x). La funcion par es simetrica con respecto al eje x, mientras que la impar es simetrica con respecto al origen.
+
+### Operaciones con funciones
+- Suma: f(x) + g(x) = (f + g)(x)
+- Multiplicacion: f(x) * g(x) = f * g * x
+- Division: f/g = f(x)/g(x)
