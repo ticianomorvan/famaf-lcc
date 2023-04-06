@@ -4,6 +4,10 @@ Aquí registraré los cambios realizados, así como el contenido añadido.
 
 <!-- toc -->
 
+## 6.4.2023
+
+- Se agregaron clases sobre valor absoluto y funciones a **Análisis Matemático I (LCC)**
+
 ## 21.3.2023
 
 - Se cambió de dominio a **famaf.ticianomorvan.com.ar**
