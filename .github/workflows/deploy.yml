@@ -20,11 +20,13 @@ jobs:
     - name: Install mdBook
       uses: actions-rs/cargo@v1
       with:
-        command: install mdbook
+        command: install
+        args: mdbook
     - name: Install mdbook-toc
       uses: actions-rs/cargo@v1
       with:
-        command: install mdbook-toc
+        command: install
+        args: mdbook-toc
     - name: Deploy GitHub Pages
       run: |
         mdbook build
