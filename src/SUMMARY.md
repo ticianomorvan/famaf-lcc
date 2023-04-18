@@ -9,3 +9,6 @@
 - [Introducción a los algoritmos](./first_year/introduction_algorithms.md)
 - [Análisis matemático I (LCC)](./first_year/mathematical_analysis.md)
 - [Matemática discreta I](./first_year/discrete_math.md)
+
+# Repasos
+- [Repaso Matemática Discreta (1er parcial)](./reviews/discrete_math_1.md)
