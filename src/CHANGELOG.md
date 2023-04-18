@@ -4,6 +4,10 @@ Aquí registraré los cambios realizados, así como el contenido añadido.
 
 <!-- toc -->
 
+## 18.4.2023
+
+- Se agregó el repaso para el primer parcial de **Matemática Discreta I**
+
 ## 6.4.2023
 
 - Se agregaron clases sobre valor absoluto y funciones a **Análisis Matemático I (LCC)**

@@ -1,3 +1,7 @@
+# Repaso: Matemática Discreta.
+
+<!-- toc -->
+
 ## Enteros
 
 ### Axiomas
@@ -204,3 +208,66 @@ Para \\(A, B\\) conjuntos finitos y disjuntos definimos el producto cartesiano d
 A \times B = \\{(a, b) \colon a \in A \land b \in B\\} \implies |A \times B| = |A| \times |B|
 \\]
 
+### Selecciones ordenadas con repetición
+
+Para un conjunto \\(X\\) con \\(n\\) elementos, si queremos formar grupos de \\(m\\) elementos, generalizamos \\(m^n\\). Por ejemplo:
+
+Para \\(X = \\{1, 2, 3, 4\\}\\), si queremos formar grupos de \\(2\\) elementos, entendemos \\(2^{|X|} = 2^4 = 16\\).
+
+### Selecciones ordenadas sin repetición
+
+Con la misma idea pero ahora sin tener en cuenta las repeticiones de los mismos elementos, principalmente podríamos entender que hay \\(|X|!\\) formas de ordenarlos. Pero, a través de la definición general:
+
+\\[
+\begin{align}
+& A = \\{a_{i_1}, a_{i_2}, \dots, a_{i_m}\\} \\\\
+& |A| = n \implies n(n - 1)(n - 2) \dots (n - (m - 1)) \quad n \geq m
+\end{align}
+\\]
+
+Podemos determinar que enrealidad, la fórmula para obtener selecciones ordenadas de \\(m\\) elementos de un conjunto con \\(n\\) elementos es:
+
+\\[
+\frac{n!}{(n - m)!}
+\\]
+
+> Observación: para \\(n = m\\), las selecciones ordenadas sin repetición toman la forma de \\(n!\\), debido a que comprendemos las **permutaciones** entre los elementos del conjunto. Las permutaciones son los intercambios de posición entre los elementos, ya que en este tipo de selección si nos importa el orden. Para desestimarlas, deberemos contar la cantidad de permutaciones de un elemento y dividir a \\(n!\\) por este, por ejemplo:
+> \\[
+> X = \\{1, 2, 3, 3, 3\\} \implies \frac{5!}{3!}
+> \\]
+
+### Selecciones sin orden
+
+Podemos encontrar la cantidad de subconjuntos de un conjunto al calcular \\(2^{|X|}\\), tomando el \\(2\\) ya que un elemento **puede o no** estar en el subconjunto. Para desestimar las permutaciones entre los elementos, utilizaremos la cantidad de elementos del subconjunto generado, generalizando en:
+
+\\[
+\frac{n!}{(n - m)!m!}
+\\]
+
+Definimos también al **número combinatorio** (o coeficiente binomial) por:
+
+\\[
+\binom{n}{m} = \frac{n!}{(n - m)!m!}
+\\]
+
+Que cumple con las siguientes propiedades:
+
+\\[
+\begin{align}
+& (1) \quad \binom{n}{m} = 0 \quad m > n \\\\
+& (2) \quad \binom{n}{0} = \binom{0}{0} = 1 \quad y \quad \binom{n}{1} = \binom{n}{n - 1} = n \\\\
+& (3) \quad \binom{n}{m} = \binom{n}{n - m} \quad m, n \in \mathbb{N}_0 \colon \space m \leq n \\\\
+& (4) \quad \binom{n + 1}{m} = \binom{n}{m - 1} + \binom{n}{m} \quad m, n \in \mathbb{N} \colon \space m \leq n
+\end{align}
+\\]
+
+### Teorema del binomio
+
+Si \\(n \in \mathbb{N}\\) se cumple \\(\forall \space a, b \in \mathbb{R}\\)
+
+\\[
+\begin{align}
+(a + b)^2 &= \sum_{i = 0}^{n} \binom{n}{i} a^{n - i}b^{i} \\\\
+&= \binom{n}{0} a^{n}b^0 + \binom{n}{1} a^{n - 1}b + \dots + \binom{n}{n - 1} a^{1}b^{n - 1} + \binom{n}{n} a^{0}b^{n}
+\end{align}
+\\]
