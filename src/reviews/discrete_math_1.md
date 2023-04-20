@@ -210,9 +210,9 @@ A \times B = \\{(a, b) \colon a \in A \land b \in B\\} \implies |A \times B| = |
 
 ### Selecciones ordenadas con repetición
 
-Para un conjunto \\(X\\) con \\(n\\) elementos, si queremos formar grupos de \\(m\\) elementos, generalizamos \\(m^n\\). Por ejemplo:
+Para un conjunto \\(X\\) con \\(n\\) elementos, si queremos formar grupos de \\(m\\) elementos, generalizamos \\(n^m\\). Por ejemplo:
 
-Para \\(X = \\{1, 2, 3, 4\\}\\), si queremos formar grupos de \\(2\\) elementos, entendemos \\(2^{|X|} = 2^4 = 16\\).
+Para \\(X = \\{1, 2, 3, 4\\}\\), si queremos formar grupos de \\(2\\) elementos, entendemos \\(4^2 = 16\\) combinaciones ordenadas con repetición.
 
 ### Selecciones ordenadas sin repetición
 
