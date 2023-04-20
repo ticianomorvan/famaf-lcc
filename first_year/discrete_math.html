@@ -1,0 +1,303 @@
+<!DOCTYPE HTML>
+<html lang="es" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Matemática discreta I - FAMAF - LCC</title>
+
+
+        <!-- Custom HTML head -->
+        <script async defer data-website-id="5cd282ea-7cb3-4047-b9bf-27ba6f4c44d3" src="https://umami-ticianomorvan.up.railway.app/umami.js"></script>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+        <!-- MathJax -->
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">Introducción</a></li><li class="chapter-item expanded affix "><a href="../CHANGELOG.html">Historial de cambios</a></li><li class="chapter-item expanded affix "><li class="part-title">Primer año</li><li class="chapter-item expanded "><a href="../first_year/introduction_algorithms.html"><strong aria-hidden="true">1.</strong> Introducción a los algoritmos</a></li><li class="chapter-item expanded "><a href="../first_year/mathematical_analysis.html"><strong aria-hidden="true">2.</strong> Análisis matemático I (LCC)</a></li><li class="chapter-item expanded "><a href="../first_year/discrete_math.html" class="active"><strong aria-hidden="true">3.</strong> Matemática discreta I</a></li><li class="chapter-item expanded affix "><li class="part-title">Repasos</li><li class="chapter-item expanded "><a href="../reviews/discrete_math_1.html"><strong aria-hidden="true">4.</strong> Repaso Matemática Discreta (1er parcial)</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">FAMAF - LCC</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="matemática-discreta-i"><a class="header" href="#matemática-discreta-i">Matemática discreta I</a></h1>
+<ul>
+<li><a href="#axiomas-de-los-enteros">Axiomas de los enteros</a>
+<ul>
+<li><a href="#algunas-observaciones-y-definiciones-importantes">Algunas observaciones y definiciones importantes</a>
+<ul>
+<li><a href="#resta">Resta</a></li>
+<li><a href="#regla-de-los-signos">Regla de los signos</a></li>
+<li><a href="#significado-natural-de-las-desigualdades">Significado natural de las desigualdades</a></li>
+<li><a href="#n%C3%BAmeros-positivos-y-negativos">Números positivos y negativos</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orden">Orden</a>
+<ul>
+<li><a href="#relaciones">Relaciones</a></li>
+</ul>
+</li>
+<li><a href="#cotas">Cotas</a></li>
+</ul>
+<p>En esta materia se tomarán principalmente los conjuntos de los números naturales \(\mathbb{R}\) y los números enteros \(\mathbb{Z}\), ya que son aquellos que nombramos <strong>discretos</strong>, debido a la distancia que separa a cada uno de sus elementos.</p>
+<p>Originalmente, comprendemos dos operaciones en \(\mathbb{N}\) que luego extendemos a \(\mathbb{Z}\): la <strong>suma</strong> y el <strong>producto</strong>. Ambos serán tomados como obvios y no se demostrarán.</p>
+<p>A partir de esa aclaración, podremos definir entonces a los <strong>axiomas</strong>, que funcionan como herramientas para demostrar propiedades de \(\mathbb{Z}\) y tampoco se demostrarán.</p>
+<h2 id="axiomas-de-los-enteros"><a class="header" href="#axiomas-de-los-enteros">Axiomas de los enteros</a></h2>
+<blockquote>
+<p>En todos los casos, \(\forall a,b,c,d \in \mathbb{Z}\)</p>
+</blockquote>
+<ul>
+<li>\(I_1: a + b \in \mathbb{Z} \land a \times b \in \mathbb{Z}\)</li>
+<li>\(I_2:\) La suma y el producto son <strong>conmutativas</strong> (conmutatividad)
+\[a + b = b + a \land a \times b = b \times a\]</li>
+<li>\(I_3:\) La suma y el producto son <strong>asociativas</strong> (asociatividad)
+\[(a + b) + c = a + (b + c) \land (a \times b) \times c = a \times (b \times c)\]</li>
+<li>\(I_4:\) Existe un elemento neutro
+\[\exists 0, 1 \in \mathbb{Z}: a + 0 = a \land a \times 1 = a\]</li>
+<li>\(I_5:\) Relación entre la suma y el producto: <strong>distributiva</strong>
+\[a \times (b + c) = a \times b + a \times c\]</li>
+<li>\(I_6:\) Existe un <strong>único</strong> inverso aditivo
+\[\exists! (-a) \in \mathbb{Z}: a + (-a) = 0\]</li>
+<li>\(I_7:\) Cancelación
+\[a \neq 0 \land ab = ac \implies b = c\]</li>
+<li>\(I_8:\) Ley de la <strong>tricotomía</strong>, solo puede cumplirse uno de los siguientes casos:
+\[a &lt; b \lor a = b \lor b &lt; a\]</li>
+<li>\(I_9:\) Ley de la <strong>transitividad</strong>:
+\[a &lt; b \land b &lt; c \implies a &lt; c\]</li>
+<li>\(I_{10}:\) Compatibilidad del orden con la suma:
+\[a &lt; b \implies a + c &lt; b + c\]</li>
+<li>\(I_{11}:\) Compatibilidad del orden con el producto:
+\[a &lt; b \land 0 &lt; c \implies a \times c &lt; b \times c\]</li>
+<li>\(I_{12}:\) \(\mathbb{X}\subseteq\mathbb{Z} \land \mathbb{X} \neq \emptyset \land \mathbb{X}\ \text{tiene cota inferior}\implies \mathbb{X}\ \text{tiene un mínimo}\)</li>
+</ul>
+<h3 id="algunas-observaciones-y-definiciones-importantes"><a class="header" href="#algunas-observaciones-y-definiciones-importantes">Algunas observaciones y definiciones importantes</a></h3>
+<h4 id="resta"><a class="header" href="#resta">Resta</a></h4>
+<p>\(a, b \in \mathbb{Z}: a - b = a + (-b)\)</p>
+<h4 id="regla-de-los-signos"><a class="header" href="#regla-de-los-signos">Regla de los signos</a></h4>
+<p>\(a, b \in \mathbb{Z} \implies (-a)(-b) = ab \land (-a)b = a(-b) = -(ab) \)</p>
+<h4 id="significado-natural-de-las-desigualdades"><a class="header" href="#significado-natural-de-las-desigualdades">Significado natural de las desigualdades</a></h4>
+<ul>
+<li>\(a &gt; b \implies b &lt; a\)</li>
+<li>\(a \leq b \implies a = b \lor a &lt; b\)</li>
+<li>\(a \geq b \implies a = b \lor b &lt; a\)</li>
+</ul>
+<blockquote>
+<p><strong>Nota</strong>: al comprender los nuevos significados de \(&gt;, \geq,\) y \(\leq\), obtendremos una versión más general de los axiomas \(I_9, I_{10}, I_{11}\) y \(I_{12}\)</p>
+</blockquote>
+<h4 id="números-positivos-y-negativos"><a class="header" href="#números-positivos-y-negativos">Números positivos y negativos</a></h4>
+<ul>
+<li>Positivo: \(a \in \mathbb{Z}: a &gt; 0\)</li>
+<li>Negativo: \(a \in \mathbb{Z}: a &lt; 0\)</li>
+</ul>
+<h2 id="orden"><a class="header" href="#orden">Orden</a></h2>
+<p>El orden en los enteros nos permite diferenciarlos y ubicarlos en base a su valor, para lograr una visión organizada de su extensión como conjunto. Es de esta percepción que surgen los axiomas de tricotomía, transitividad, etc. Véase <a href="#axiomas-de-los-enteros">Axiomas de los enteros</a>.</p>
+<h3 id="relaciones"><a class="header" href="#relaciones">Relaciones</a></h3>
+<p>Encontramos que, a partir de los operadores de orden \(&gt;, &lt;, \leq, \) y \(\geq\), podemos encontrar ciertas propiedades.</p>
+<p>Por ejemplo, para \(\leq\) con \(a,b,c, \in \mathbb{Z}\):</p>
+<ul>
+<li><strong>Reflexividad</strong>: \(a \leq a: a = a \implies a \leq a\)</li>
+<li><strong>Antisimetría</strong>: \(a \leq b \land b \leq a \implies a = b\)
+\[
+\begin{align}
+a &lt; b \land b &lt; a \implies \text{Absurdo}\newline
+a &lt; b \land b = a \implies \text{Absurdo}\newline
+a  b \land b &lt; a \implies \text{Absurdo}\newline
+a = b \land b = a \implies a = b
+\end{align}
+\]</li>
+<li><strong>Transitividad</strong>: \(a \leq b \land b \leq c \implies a \leq c\)</li>
+</ul>
+<p>Es importante observar que:</p>
+<ul>
+<li>\(&lt;\) <strong>no</strong> es una relación de orden.</li>
+<li>\(=\) es una <strong>relación de equivalencia</strong> pues es <strong>simétrica</strong>.</li>
+<li>Para negar:
+<ul>
+<li>\(\neq: a \neq b \implies a &lt; b \lor b &lt; a\)</li>
+<li>\(\ngeq: a \ngeq b \implies a = b \lor b &lt; a \)</li>
+</ul>
+</li>
+</ul>
+<h2 id="cotas"><a class="header" href="#cotas">Cotas</a></h2>
+<p>Para \(\mathbb{X} \subseteq \mathbb{Z}\), definimos la cota inferior como \(b \in \mathbb{X}: b \leq a, \forall a \in \mathbb{X}\). Es decir, una cota inferior es el valor más pequeño de un conjunto.</p>
+<p>Para dar sentido entonces al axioma \(I_{12}\), definimos al <strong>mínimo</strong> de un conjunto como la cota inferior \(b\) de un conjunto \(\mathbb{X}\) que a su vez cumple que \(b \in \mathbb{X}\), o sea, que forma parte del conjunto.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../first_year/mathematical_analysis.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../reviews/discrete_math_1.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../first_year/mathematical_analysis.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../reviews/discrete_math_1.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

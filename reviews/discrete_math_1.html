@@ -1,0 +1,427 @@
+<!DOCTYPE HTML>
+<html lang="es" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Repaso Matemática Discreta (1er parcial) - FAMAF - LCC</title>
+
+
+        <!-- Custom HTML head -->
+        <script async defer data-website-id="5cd282ea-7cb3-4047-b9bf-27ba6f4c44d3" src="https://umami-ticianomorvan.up.railway.app/umami.js"></script>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+        <!-- MathJax -->
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">Introducción</a></li><li class="chapter-item expanded affix "><a href="../CHANGELOG.html">Historial de cambios</a></li><li class="chapter-item expanded affix "><li class="part-title">Primer año</li><li class="chapter-item expanded "><a href="../first_year/introduction_algorithms.html"><strong aria-hidden="true">1.</strong> Introducción a los algoritmos</a></li><li class="chapter-item expanded "><a href="../first_year/mathematical_analysis.html"><strong aria-hidden="true">2.</strong> Análisis matemático I (LCC)</a></li><li class="chapter-item expanded "><a href="../first_year/discrete_math.html"><strong aria-hidden="true">3.</strong> Matemática discreta I</a></li><li class="chapter-item expanded affix "><li class="part-title">Repasos</li><li class="chapter-item expanded "><a href="../reviews/discrete_math_1.html" class="active"><strong aria-hidden="true">4.</strong> Repaso Matemática Discreta (1er parcial)</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">FAMAF - LCC</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="repaso-matemática-discreta"><a class="header" href="#repaso-matemática-discreta">Repaso: Matemática Discreta.</a></h1>
+<ul>
+<li><a href="#enteros">Enteros</a>
+<ul>
+<li><a href="#axiomas">Axiomas</a></li>
+<li><a href="#cotas">Cotas</a></li>
+</ul>
+</li>
+<li><a href="#recursi%C3%B3n-e-inducci%C3%B3n">Recursión e inducción</a>
+<ul>
+<li><a href="#sumatoria">Sumatoria</a></li>
+<li><a href="#productoria">Productoria</a></li>
+<li><a href="#inducci%C3%B3n">Inducción</a></li>
+</ul>
+</li>
+<li><a href="#conteo">Conteo</a>
+<ul>
+<li><a href="#principio-de-adici%C3%B3n">Principio de adición</a></li>
+<li><a href="#principio-de-multiplicaci%C3%B3n">Principio de multiplicación</a></li>
+<li><a href="#selecciones-ordenadas-con-repetici%C3%B3n">Selecciones ordenadas con repetición</a></li>
+<li><a href="#selecciones-ordenadas-sin-repetici%C3%B3n">Selecciones ordenadas sin repetición</a></li>
+<li><a href="#selecciones-sin-orden">Selecciones sin orden</a></li>
+<li><a href="#teorema-del-binomio">Teorema del binomio</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="enteros"><a class="header" href="#enteros">Enteros</a></h2>
+<h3 id="axiomas"><a class="header" href="#axiomas">Axiomas</a></h3>
+<blockquote>
+<p>Axioma: propiedad que no se demuestra y que se utiliza para demostrar otras.</p>
+</blockquote>
+<ol>
+<li>\(a + b, a \times b \in \mathbb{Z}\)</li>
+<li>\(a + b = b + a \land a \times b = b \times a\)</li>
+<li>\(a + (b + c) = (a + b) + c \land a \times (b \times c) = (a \times b) \times c \)</li>
+<li>\(\exists\ 0, 1 \colon a + 0 = a \land a \times 1 = a\)</li>
+<li>\(a \times (b + c) = ac + bc\)</li>
+<li>\(\forall a \in \mathbb{Z}, \exists!\ (-a) \in \mathbb{Z} \colon\ a + (-a) = 0\)</li>
+<li>\(a \neq 0 \land ab = bc \implies b = c\)</li>
+<li>\(a &lt; b \lor a = b \lor b &gt; a \longrightarrow\) <strong>Tricotomía</strong></li>
+<li>\(a &lt; b \land b &lt; c \implies a &lt; c \longrightarrow\) <strong>Transitividad</strong></li>
+<li>\(a &lt; b \implies a + c &lt; b + c\)</li>
+<li>\(a &lt; b \land c &gt; 0 \implies ac &lt; bc\)</li>
+<li>\(\forall\ X \subseteq \mathbb{Z},\ \exists\ b \in \mathbb{X} \colon\ b \leq a,\ \forall a \in \mathbb{X} \)</li>
+</ol>
+<p>Entendemos las propiedades de \(\leq\)</p>
+<ul>
+<li>\(a \leq a \implies a = a \longrightarrow\) <strong>Reflexividad</strong></li>
+<li>\(a \leq b \land b \leq a \implies a = b \longrightarrow\) <strong>Antisimetría</strong></li>
+<li>\(a \leq b \land b \leq c = a \leq c \longrightarrow\) <strong>Transitividad</strong></li>
+</ul>
+<p>Y observamos que</p>
+<ul>
+<li>\(&lt;\) <strong>no</strong> es una relación de orden.</li>
+<li>\(=\) es una relación de equivalencia pues es <strong>simétrica</strong>.</li>
+<li>Para negar \(\leq\) ó \(=\), entendemos que \(a \ne b \implies a &gt; b \lor a &lt; b\) y \(a \nless b \implies a &gt; b \lor a = b\)</li>
+</ul>
+<h3 id="cotas"><a class="header" href="#cotas">Cotas</a></h3>
+<p>Un conjunto \(\mathbb{X}\) tiene cota inferior cuando \(\exists\ b \in \mathbb{Z} \colon\ b \leq a,\ \forall a\in \mathbb{X}\). Un conjunto tiene <strong>mínimo</strong> cuando ese \(b \in \mathbb{X}\). Por ejemplo, para \(\mathbb{X} = \{ 1, 2, 3 \}\), el mínimo es \(1\) puesto que cumple que sea menor o igual a cada elemento del conjunto y pertenece al mismo.</p>
+<h2 id="recursión-e-inducción"><a class="header" href="#recursión-e-inducción">Recursión e inducción</a></h2>
+<p>Una función está definida cuando su valor está <strong>unívocamente determinado</strong>, es decir, está definido.</p>
+<p>Para definir propiedadades \(\forall\ n \in \mathbb{N}\):</p>
+<ul>
+<li>Explítcitas \(\longrightarrow U_n = 2n + 1\)</li>
+<li>Recursivas:
+\[
+\begin{align}
+&amp; U_1 = 1 \\
+&amp; U_2 = 2 \\
+&amp; U_n = U_{n - 1} + U_{n - 2}
+\end{align}
+\]</li>
+</ul>
+<h3 id="sumatoria"><a class="header" href="#sumatoria">Sumatoria</a></h3>
+<p>Estas expresiones son equivalentes:</p>
+<p>\[
+1 + 2 + 3 + \cdots + n = \sum_{i = 1}^{n}i
+\]</p>
+<p>Por lo que definimos la sumatoria como:</p>
+<p>\[
+a_1 + a_2 + \cdots + a_n = \sum_{i = 1}^{n}a_i
+\]</p>
+<p>Y podemos ver que la sumatoria se reutiliza en sí misma:</p>
+<p>\[
+\sum_{i = 1}^{n}a_i = \sum_{i = 1}^{n - 1}a_i + a_n
+\]</p>
+<p>Pero podemos sustituirla por otra expresión equivalente:</p>
+<p>\[
+\sum_{i = 1}^{n}i = \frac{n(n + 1)}{2}
+\]</p>
+<h3 id="productoria"><a class="header" href="#productoria">Productoria</a></h3>
+<p>Al igual que con la sumatoria, la productoria equivale de manera general a:</p>
+<p>\[
+a_1 \times a_2 \times a_3 \times \cdots \times a_n = \prod_{i = 1}^{n}i
+\]</p>
+<p>Y que, a su vez, podemos reemplazarla por una expresión equivalente, como es el caso del <strong>factorial</strong>:</p>
+<p>\[
+\prod_{i = 1}^{n}i = i!
+\]</p>
+<p>Definido recursivamente por:</p>
+<p>\[
+\prod_{i = 1}^{n}i = \prod_{i = 1}^{n - 1}i \times n
+\]</p>
+<p>Por ejemplo:</p>
+<p>\[
+\begin{align}
+\prod_{i = 1}^{3}i &amp;= \prod_{i = 1}^{2}i \times 3 \\
+\prod_{i = 1}^{3}i &amp;= \prod_{i = 1}^{1}i \times 2 \times 3 \\
+\prod_{i = 1}^{3}i &amp;= 1 \times 2 \times 3 \\
+\prod_{i = 1}^{3}i &amp;= 6 = 3! \\
+\end{align}
+\]</p>
+<h3 id="inducción"><a class="header" href="#inducción">Inducción</a></h3>
+<p>Sea \(P(n)\) una propiedad para \(n \in \mathbb{N}\), entonces:</p>
+<ul>
+<li>\(P(1)\) es verdadera <strong>(Caso base)</strong></li>
+<li>\(P(k)\) es verdadera \(\implies P(k + 1)\) es verdadera para \(k \in \mathbb{N}\) <strong>(Caso inductivo)</strong></li>
+</ul>
+<p>Con la inducción buscamos generalizar una propiedad para todos los elementos de un conjunto, usualmente los naturales.</p>
+<p>Por ejemplo, tomando en cuenta la sumatoria definida anteriormente por:</p>
+<p>\[\sum_{i = 1}^{n}i = \frac{n(n + 1)}{2} \quad n \in \mathbb{N} \]</p>
+<p>Veremos que se cumple el caso base para \(i = 1\)</p>
+<p>\[
+\begin{align}
+\sum_{i = 1}^{1}i &amp;= \frac{1(1 + 1)}{2} \\
+1 &amp;= \frac{2}{2} \\
+1 &amp;= 1
+\end{align}
+\]</p>
+<p>Entonces, plantearemos nuestra <strong>hipótesis inductiva</strong> para \(k \in \mathbb{N}\), cumpliendo que \(P(k) \implies P(k + 1)\):</p>
+<p>\[
+\left[ \sum_{i = 1}^{k}i = \frac{k(k + 1)}{2} \right] \space (H.I.)
+\]</p>
+<p>Y, reemplazando \(k\) por \(k + 1\), obtendremos que queremos probar que:</p>
+<p>\[
+\sum_{i = 1}^{k + 1}i = \frac{(k + 1)(k + 2)}{2}
+\]</p>
+<p>Luego:</p>
+<p>\[
+\begin{align}
+\sum_{i = 1}^{k + 1}i &amp;= \sum_{i = 1}^{k}i + (k + 1) \\
+\sum_{i = 1}^{k + 1}i &amp;= \frac{k(k + 1)}{2} + (k + 1) \quad (H.I.) \\
+\sum_{i = 1}^{k + 1}i &amp;= \frac{k(k + 1) + 2(k + 1)}{2} \\
+\sum_{i = 1}^{k + 1}i &amp;= \frac{(k + 1)(k + 2)}{2}
+\end{align}
+\]</p>
+<p>Por lo tanto, se demuestra \(P(k + 1)\) y se verifica la propiedad por inducción para \(k \in \mathbb{N}\).</p>
+<p>También encontramos la <strong>inducción corrida</strong>, que involucra a \(k \in \mathbb{N}_0\) y comprueba que la propiedad vale para el anterior de un número en \(\mathbb{N_0}\). Por otro lado, la <strong>inducción fuerte</strong>, busca verificar la propiedad para cualquier entero, de la forma en que:</p>
+<p>Dado un entero cualquiera \(n_0\) y sea \(Z_{\geq n_0}\) el conjunto de enteros tal que \(n \geq n_0\), (S\) es un subconjunto de \(Z_{\geq n_0}\) que satisface:</p>
+<ul>
+<li>\(n_0 \in S\)</li>
+<li>\(h \in S \implies \forall\ h \in n_0 \leq h \leq k \implies k + 1 \in S \)</li>
+</ul>
+<p>Por lo que generalizamos para \(n_0 \in \mathbb{N}\) y una propiedad \(P(n_0)\) definida \(\forall n \geq n_0\):</p>
+<ul>
+<li>\(P(n_0)\) es verdadera.</li>
+<li>\(P(k)\) es verdadera \(\forall n_0 \leq h \leq k \implies P(k + 1)\) es verdadera.</li>
+</ul>
+<p>Por ejemplo:</p>
+<p>\[
+\begin{align}
+U_1 &amp;= 3 \\
+U_2 &amp;= 5 \\
+U_n &amp;= 3U_{n - 1} - 2U_{n - 2} \quad \forall \space n \geq 3
+\end{align}
+\]</p>
+<p>En este caso, deberemos probar \(P(n)\) para \(n = 1\) y para \(n = 2\), debido a que ambos conforman nuestros casos bases de los que depende la definición recursiva. Para dejar esto en claro, al encontrar nuestro supuesto que queremos probar, además de definir nuestra hipótesis inductiva para \(k\), deberemos hacerlo para \(h\) de modo que la propiedad se defina para el rango \(n_0 \leq h \leq k\):</p>
+<p>\[
+n_0 = 1 \quad k \geq 1 \quad U_k = 2^k + 1 \quad U_h = 2^h + 1 \quad (n_0) \space 1 \leq h \leq k
+\]</p>
+<h2 id="conteo"><a class="header" href="#conteo">Conteo</a></h2>
+<p>Un conjunto \(X\) es finito cuando sus elementos se pueden <strong>contar</strong>, es decir, se pueden ordenar y hay uno final. Se define por:</p>
+<p>\[
+\exists \space f \colon X \rightarrow \{1, \dots, n\} \space \text{biyectiva}
+\]</p>
+<p>Y llamaremos <strong>cardinal</strong> a la cantidad de elementos de \(X\) denotada por \(|X| = n\)</p>
+<h3 id="principio-de-adición"><a class="header" href="#principio-de-adición">Principio de adición</a></h3>
+<p>Para \(A, B\) conjuntos finitos y disjuntos (es decir, \(A \cap B = \emptyset \)), entonces:</p>
+<p>\[
+|A \cup B| = |A| + |B| \implies |A_1 \dots \cup A_n| = |A_1| + \dots + |A_n|
+\]</p>
+<h3 id="principio-de-multiplicación"><a class="header" href="#principio-de-multiplicación">Principio de multiplicación</a></h3>
+<p>Para \(A, B\) conjuntos finitos y disjuntos definimos el producto cartesiano de \(A \space \text{por} \space B\) como \(A \times B\) y generalizamos:</p>
+<p>\[
+A \times B = \{(a, b) \colon a \in A \land b \in B\} \implies |A \times B| = |A| \times |B|
+\]</p>
+<h3 id="selecciones-ordenadas-con-repetición"><a class="header" href="#selecciones-ordenadas-con-repetición">Selecciones ordenadas con repetición</a></h3>
+<p>Para un conjunto \(X\) con \(n\) elementos, si queremos formar grupos de \(m\) elementos, generalizamos \(n^m\). Por ejemplo:</p>
+<p>Para \(X = \{1, 2, 3, 4\}\), si queremos formar grupos de \(2\) elementos, entendemos \(4^2 = 16\) combinaciones ordenadas con repetición.</p>
+<h3 id="selecciones-ordenadas-sin-repetición"><a class="header" href="#selecciones-ordenadas-sin-repetición">Selecciones ordenadas sin repetición</a></h3>
+<p>Con la misma idea pero ahora sin tener en cuenta las repeticiones de los mismos elementos, principalmente podríamos entender que hay \(|X|!\) formas de ordenarlos. Pero, a través de la definición general:</p>
+<p>\[
+\begin{align}
+&amp; A = \{a_{i_1}, a_{i_2}, \dots, a_{i_m}\} \\
+&amp; |A| = n \implies n(n - 1)(n - 2) \dots (n - (m - 1)) \quad n \geq m
+\end{align}
+\]</p>
+<p>Podemos determinar que enrealidad, la fórmula para obtener selecciones ordenadas de \(m\) elementos de un conjunto con \(n\) elementos es:</p>
+<p>\[
+\frac{n!}{(n - m)!}
+\]</p>
+<blockquote>
+<p>Observación: para \(n = m\), las selecciones ordenadas sin repetición toman la forma de \(n!\), debido a que comprendemos las <strong>permutaciones</strong> entre los elementos del conjunto. Las permutaciones son los intercambios de posición entre los elementos, ya que en este tipo de selección si nos importa el orden. Para desestimarlas, deberemos contar la cantidad de permutaciones de un elemento y dividir a \(n!\) por este, por ejemplo:
+\[
+X = \{1, 2, 3, 3, 3\} \implies \frac{5!}{3!}
+\]</p>
+</blockquote>
+<h3 id="selecciones-sin-orden"><a class="header" href="#selecciones-sin-orden">Selecciones sin orden</a></h3>
+<p>Podemos encontrar la cantidad de subconjuntos de un conjunto al calcular \(2^{|X|}\), tomando el \(2\) ya que un elemento <strong>puede o no</strong> estar en el subconjunto. Para desestimar las permutaciones entre los elementos, utilizaremos la cantidad de elementos del subconjunto generado, generalizando en:</p>
+<p>\[
+\frac{n!}{(n - m)!m!}
+\]</p>
+<p>Definimos también al <strong>número combinatorio</strong> (o coeficiente binomial) por:</p>
+<p>\[
+\binom{n}{m} = \frac{n!}{(n - m)!m!}
+\]</p>
+<p>Que cumple con las siguientes propiedades:</p>
+<p>\[
+\begin{align}
+&amp; (1) \quad \binom{n}{m} = 0 \quad m &gt; n \\
+&amp; (2) \quad \binom{n}{0} = \binom{0}{0} = 1 \quad y \quad \binom{n}{1} = \binom{n}{n - 1} = n \\
+&amp; (3) \quad \binom{n}{m} = \binom{n}{n - m} \quad m, n \in \mathbb{N}_0 \colon \space m \leq n \\
+&amp; (4) \quad \binom{n + 1}{m} = \binom{n}{m - 1} + \binom{n}{m} \quad m, n \in \mathbb{N} \colon \space m \leq n
+\end{align}
+\]</p>
+<h3 id="teorema-del-binomio"><a class="header" href="#teorema-del-binomio">Teorema del binomio</a></h3>
+<p>Si \(n \in \mathbb{N}\) se cumple \(\forall \space a, b \in \mathbb{R}\)</p>
+<p>\[
+\begin{align}
+(a + b)^2 &amp;= \sum_{i = 0}^{n} \binom{n}{i} a^{n - i}b^{i} \\
+&amp;= \binom{n}{0} a^{n}b^0 + \binom{n}{1} a^{n - 1}b + \dots + \binom{n}{n - 1} a^{1}b^{n - 1} + \binom{n}{n} a^{0}b^{n}
+\end{align}
+\]</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../first_year/discrete_math.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../first_year/discrete_math.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,42 @@
+name: Deploy to GH Pages
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write 
+      pull-requests: write
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+    - uses: actions-rs/toolchain@v1
+      with:
+        toolchain: stable
+    - name: Install mdBook
+      uses: actions-rs/cargo@v1
+      with:
+        command: install
+        args: mdbook
+    - name: Install mdbook-toc
+      uses: actions-rs/cargo@v1
+      with:
+        command: install
+        args: mdbook-toc
+    - name: Deploy GitHub Pages
+      run: |
+        mdbook build
+        git worktree add gh-pages
+        git config user.name "Deploy from CI"
+        git config user.email ""
+        cd gh-pages
+        git update-ref -d refs/heads/gh-pages
+        rm -rf *
+        mv ../book/* .
+        git add .
+        git commit -m "Deploy $GITHUB_SHA to gh-pages"
+        git push --force --set-upstream origin gh-pages

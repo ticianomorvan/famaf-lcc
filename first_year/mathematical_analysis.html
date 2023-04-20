@@ -1,0 +1,449 @@
+<!DOCTYPE HTML>
+<html lang="es" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Análisis matemático I (LCC) - FAMAF - LCC</title>
+
+
+        <!-- Custom HTML head -->
+        <script async defer data-website-id="5cd282ea-7cb3-4047-b9bf-27ba6f4c44d3" src="https://umami-ticianomorvan.up.railway.app/umami.js"></script>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+        <!-- MathJax -->
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">Introducción</a></li><li class="chapter-item expanded affix "><a href="../CHANGELOG.html">Historial de cambios</a></li><li class="chapter-item expanded affix "><li class="part-title">Primer año</li><li class="chapter-item expanded "><a href="../first_year/introduction_algorithms.html"><strong aria-hidden="true">1.</strong> Introducción a los algoritmos</a></li><li class="chapter-item expanded "><a href="../first_year/mathematical_analysis.html" class="active"><strong aria-hidden="true">2.</strong> Análisis matemático I (LCC)</a></li><li class="chapter-item expanded "><a href="../first_year/discrete_math.html"><strong aria-hidden="true">3.</strong> Matemática discreta I</a></li><li class="chapter-item expanded affix "><li class="part-title">Repasos</li><li class="chapter-item expanded "><a href="../reviews/discrete_math_1.html"><strong aria-hidden="true">4.</strong> Repaso Matemática Discreta (1er parcial)</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">FAMAF - LCC</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="análisis-matemático-i-lcc"><a class="header" href="#análisis-matemático-i-lcc">Análisis matemático I (LCC)</a></h1>
+<ul>
+<li><a href="#propiedades-de-los-n%C3%BAmeros-reales-mathbbr">Propiedades de los números reales (\mathbb{R})</a></li>
+<li><a href="#ecuaciones">Ecuaciones</a>
+<ul>
+<li><a href="#ecuaciones-cuadr%C3%A1ticas">Ecuaciones cuadráticas</a></li>
+</ul>
+</li>
+<li><a href="#desigualdades">Desigualdades</a>
+<ul>
+<li><a href="#propiedades">Propiedades</a></li>
+<li><a href="#reglas">Reglas</a></li>
+<li><a href="#intervalos-y-conjuntos">Intervalos y conjuntos</a></li>
+</ul>
+</li>
+<li><a href="#valor-absoluto">Valor absoluto</a>
+<ul>
+<li><a href="#propiedades-1">Propiedades</a></li>
+<li><a href="#resultados-%C3%BAtiles">Resultados útiles</a></li>
+</ul>
+</li>
+<li><a href="#funciones">Funciones</a>
+<ul>
+<li><a href="#recta">Recta</a></li>
+<li><a href="#desplazamientos">Desplazamientos</a></li>
+<li><a href="#estiramientos-y-reflexiones">Estiramientos y reflexiones</a></li>
+<li><a href="#funciones-pares-e-impares">Funciones pares e impares</a></li>
+<li><a href="#operaciones-con-funciones">Operaciones con funciones</a></li>
+<li><a href="#composici%C3%B3n-de-funciones">Composición de funciones</a></li>
+<li><a href="#inyectivas-y-suryectivas-o-sobreyectivas">Inyectivas y suryectivas (o sobreyectivas)</a></li>
+<li><a href="#funci%C3%B3n-inversa">Función inversa</a></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>Conjunto</strong>: colección de elementos que comparten peculiaridades.</p>
+</blockquote>
+<p>Para el análisis, comprendemos diversos conjuntos numéricos.</p>
+<ul>
+<li><strong>Naturales</strong>: \(\mathbb{N} = \{ 1, 2, 3, 4, 5, ... \} \)</li>
+<li><strong>Enteros</strong>: \(\mathbb{Z} = \{ -2, -1, 0, 1, 2, ... \} \)</li>
+<li><strong>Racionales</strong>: \(\mathbb{Q} = \{ \frac{1}{2}, \frac{1}{4}, \frac{2}{3}, ... \} \)</li>
+<li><strong>Irracionales</strong>: \(\mathbb{II} = \{ \sqrt{2}, \sqrt{3}, \sqrt{5}, ... \} \)</li>
+<li><strong>Reales</strong>: \(\mathbb{R} = \mathbb{N}\cup\mathbb{Z}\cup\mathbb{Q}\cup\mathbb{II} \)</li>
+</ul>
+<p>Partiendo desde el conjunto de los números naturales, comenzamos a notar diversas particularidades.</p>
+<ul>
+<li>Para todo \(\mathbb{N}\), su suma y su producto darán como resultado otro \(\mathbb{N}\). Sin embargo, su diferencia no se comporta de la misma manera.</li>
+<li>Para resolver este problema, se incorporan el conjunto de los \(\mathbb{Z}\), que incluye los números negativos y el elemento neutro, llamado cero. Pero a su vez, la división entre dos enteros no corresponde siempre a otro igual.</li>
+<li>Entonces, es que surgen los \(\mathbb{Q}\) de la forma \(\frac{m}{n}\), donde \(m\in\mathbb{Z}\) y \(n\in\mathbb{Z}\).</li>
+</ul>
+<p>A los números racionales o números del conjunto \(\mathbb{Q}\), podemos expresarlos de forma <strong>decimal</strong> y forma <strong>fraccionaria</strong>. La decimal pretende demostrar la parte <em>no entera</em> del número, de forma <strong>finita</strong> o <strong>infinita periódica</strong>, por ejemplo \(1.25\) ó \(1.\overline{33}\), donde este último contiene infinitas repeticiones del \(.33\).</p>
+<p>Las fracciones tienen diversas propiedades interesantes:</p>
+<ul>
+<li>\(\frac{m}{0}\) <strong>NO</strong> está definido dentro de \(\mathbb{R}\).</li>
+<li>Dos fracciones son equivalentes si \(\frac{m}{n}, \frac{p}{q}\) con \(m * q = n * q\)</li>
+<li>\(\frac{m}{n}\) es irreducible si \(m\) y \(n\) no tienen divisores en común.</li>
+<li>La suma de fracciones se define como \(\frac{m}{n} + \frac{p}{q} = \frac{mq + np}{nq}\)</li>
+<li>La multiplicación de fracciones se define como \(\frac{m}{n} * \frac{p}{q} = \frac{mp}{nq}\)</li>
+<li>La división de fracciones se define como \(\frac{\frac{m}{n}}{\frac{p}{q}} = \frac{m}{n} * \frac{q}{p} = \frac{mq}{np}\)</li>
+</ul>
+<p>Cabe aclarar que no todos los números tienen representación infinita periódica, por lo que surgen los <strong>Irracionales</strong> o \(\mathbb{II}\), que coexisten con los demás conjuntos dentro del conjunto de los reales.</p>
+<p>Para representar gráficamente a los números reales, utilizamos la <strong>recta numérica</strong>, que es una línea horizontal numerada y que no termina en ninguno de sus extremos. Es importante colocar el \(0\) entre los números positivos y los negativos, que se suelen colocar por convención a la derecha e izquierda del cero respectivamente.</p>
+<h2 id="propiedades-de-los-números-reales-mathbbr"><a class="header" href="#propiedades-de-los-números-reales-mathbbr">Propiedades de los números reales \(\mathbb{R}\)</a></h2>
+<blockquote>
+<p>Nota: estas propiedades valen \(\forall a,b,c\in\mathbb{R}\)</p>
+</blockquote>
+<ol>
+<li>Propiedad asociativa de la suma: \((a + b) + c = a + (b + c)\)</li>
+<li>Existe un elemento neutro para la suma: \(\exists0\in\mathbb{R}: 0 + a = a + 0 = a\)</li>
+<li>Existe un elemento opuesto para la suma: \(\exists(-a)\in\mathbb{R}: a + (-a) = 0\)</li>
+<li>Propiedad conmutativa de la suma: \(a + b = b + a\)</li>
+<li>Propiedad asociativa del producto: \((a * b) * c = a * (b * c)\)</li>
+<li>Existe un elemento neutro para el producto: \(\exists1\in\mathbb{R}: 1 * a = a * 1 = a\)</li>
+<li>Existe un inverso para el producto: \(\exists a^{-1}\in\mathbb{R}: a * a^{-1} = 1\)</li>
+<li>Propiedad conmutativa del producto: \(a * b = b * a\)</li>
+<li>Propiedad distributiva del producto: \(a(b + c) = ab + bc\)</li>
+</ol>
+<blockquote>
+<p>Observación: \(a * b = 0 \implies a = 0 \lor b = 0\)</p>
+</blockquote>
+<p><strong>Radicación</strong>: Se define la raíz cuadrada de \(a\) siendo un número positivo, al número también positivo \(b\) tal que \(b ^ 2 = a\) y \(\sqrt{a} = b\), como también vale que \((- b) ^ 2 = a\) y \(-\sqrt{a} = -b\). Es importante aclarar que vale <em>análogamente</em> para las raíces <strong>pares</strong>.</p>
+<p>A su vez también se definen las raíces de índice <strong>impar</strong> para todos los \(\mathbb{R}\).</p>
+<p>Así, extendremos la definición de <strong>potencia</strong> para todo número positivo de exponente racional:</p>
+<blockquote>
+<p>\[a ^ {\frac{m}{n}} = \sqrt[n]{a ^ m}\]</p>
+</blockquote>
+<p>Y podemos agregar más propiedades a partir de dichas definiciones:</p>
+<ol start="10">
+<li>Propiedad distributiva de la potencia respecto al producto: \((a * b) ^ n = a ^ n * b ^ n \) con \(n\in\mathbb{Q}\)</li>
+<li>Producto de potencias de igual base: \(a ^ n * a ^ m = a ^ {m + n}\) para \(m, n\in\mathbb{Q}\)</li>
+<li>Diferencia de cuadrados: \(a ^ 2 - b ^ 2 = (a + b) (a - b)\)</li>
+<li>Cuadrado del binomio: \((a + b) ^ 2 = a ^ 2 + 2ab + b ^ 2\)</li>
+</ol>
+<h2 id="ecuaciones"><a class="header" href="#ecuaciones">Ecuaciones</a></h2>
+<p>Una ecuación es <em>una igualdad entre expresiones algebraicas que contienen una o más incógnitas</em>.</p>
+<p>Para resolver ecuaciones, aplicamos las propiedades de \(\mathbb{R}\) para poder <em>despejar</em> la incógnita y encontrar su valor.</p>
+<p>Por ejemplo:</p>
+<p>\[2x + 6 = 18 \]
+\[2x + 6 + (-6) = 18 + (-6)\]
+\[2x \times \frac{1}{2} = 12 \times \frac{1}{2}\]
+\[\Rightarrow x = 6 \]</p>
+<p>Es importante notar que <em>resolver una ecuación</em> es encontrar el conjunto de soluciones para los cuales la igualdad se cumple, es decir, el <strong>conjunto solución</strong>.</p>
+<p>Definimos, por ahora, dos tipos de ecuaciones:</p>
+<ul>
+<li>Ecuaciones lineales: donde la/s incógnitas se encuentran a potencia \(1\).</li>
+<li>Ecuaciones cuadráticas: donde la/s incógnitas se encuentran a potencia \(2\).</li>
+</ul>
+<h3 id="ecuaciones-cuadráticas"><a class="header" href="#ecuaciones-cuadráticas">Ecuaciones cuadráticas</a></h3>
+<p>Si bien cualquier ecuación que contenga una incógnita a potencia \(2\) se pueden llamar <em>cuadráticas</em>, encontramos un caso especial de éstas, donde \(ax^2 + bx + c = 0\) para todo \(a,b,c\in\mathbb{R}\). Para este tipo de ecuaciones, buscaremos las llamadas <strong>raíces</strong> (es decir, aquellos números que al sustituir a la incógnita, mantienen la igualdad a \(0\)). Para ello, podemos utilizar dos métodos:</p>
+<ol>
+<li>Bhaskara o fórmula resolvente, que resultará en las dos raíces a partir del \(\pm\)</li>
+</ol>
+<p>\[x_1,_2 = \frac{-b \pm \sqrt{b ^ 2 - 4ac}}{2a}\]</p>
+<ol start="2">
+<li>Completar cuadrados, en el que buscaremos escribir la ecuación cuadrática de la forma:</li>
+</ol>
+<p>\[(x + a) ^ 2 + b\]</p>
+<h2 id="desigualdades"><a class="header" href="#desigualdades">Desigualdades</a></h2>
+<p>Una desigualdad comprende dos expresiones que pueden ser distintas o iguales, pero no directamente iguales. Por ejemplo: \(x + 3 &lt; 5\)</p>
+<h3 id="propiedades"><a class="header" href="#propiedades">Propiedades</a></h3>
+<ol>
+<li>\(a &gt; 0 \land b &gt; 0 \implies a + b &gt; 0 \land a \times b &gt; 0\)</li>
+<li>\(a \in \mathbb{R} \implies a = 0 \lor a &gt; 0 \lor (-a) &gt; 0\)</li>
+</ol>
+<p>Definimos un número positivo como \(a &gt; 0\), mientras que un negativo \(a &lt; 0\). También, sabemos que un número es <strong>mayor</strong> a otro si \(a - b &gt; 0\)</p>
+<h3 id="reglas"><a class="header" href="#reglas">Reglas</a></h3>
+<ul>
+<li>\(a &gt; b \land b &gt; c \implies a &gt; c\)</li>
+<li>\(a &gt; b \implies a + c &gt; b + c,\ \forall c \in \mathbb{R}\)</li>
+<li>\(a &gt; b \land c &gt; d \implies a + c &gt; b + d\)</li>
+<li>\(a &gt; b \land c &gt; 0 \implies a \times c &gt; b \times c\)</li>
+<li>\(a &gt; b \land c &lt; 0 \implies a \times c &lt; b \times c\)</li>
+</ul>
+<h3 id="intervalos-y-conjuntos"><a class="header" href="#intervalos-y-conjuntos">Intervalos y conjuntos</a></h3>
+<p>Recordando la definición de conjuntos, podemos definir las operaciones entre ellos:</p>
+<ul>
+<li>Unión: \(\mathbf{A}\cup\mathbf{B} = \{ x \in \mathbf{A} \lor x \in \mathbf{B} \}\)</li>
+<li>Intersección: \(\mathbf{A}\cap\mathbf{B} = \{ x \in \mathbf{A} \land x \in \mathbf{B}\}\)</li>
+</ul>
+<p>Además de la notación de conjuntos, podemos definir <strong>intervalos</strong> de números reales:</p>
+<ul>
+<li>Abierto: \((a, b) \implies \{ x \in \mathbb{R} \colon a &lt; x &lt; b \}\)</li>
+<li>Cerrado: \([a, b] \implies \{ x \in \mathbb{R} \colon a \leq x \leq b \}\)</li>
+<li>Semiabierto: \([a, b) \implies \{ x \in \mathbb{R} \colon a \leq x &lt; b \} \)</li>
+</ul>
+<p>Aunque también tenemos intervalos infinitos, por ejemplo: \([a, \infty+) = \{ x \in \mathbb{R} \colon a \leq x \}\)</p>
+<blockquote>
+<p>Nota: si aparece el infinito en un intervalo, debe ser <strong>siempre</strong> abierto por su lado.</p>
+</blockquote>
+<h2 id="valor-absoluto"><a class="header" href="#valor-absoluto">Valor absoluto</a></h2>
+<p>Podemos definir el valor absoluto de \(a\) que denotamos \(|a|\) como:</p>
+<p>\[
+|x| =
+\begin{cases}
+\displaylines{x, &amp; x \geq 0 \\\ -x, &amp; x &lt; 0}
+\end{cases}
+\]</p>
+<p>Podemos entender también la definición de valor absoluto como la <strong>distancia al cero</strong> a la que se encuentra un número. Por ejemplo, \(|-5| = 5\), es decir, el \(-5\) se encuentra a cinco unidades del cero.</p>
+<h3 id="propiedades-1"><a class="header" href="#propiedades-1">Propiedades</a></h3>
+<ol>
+<li>\(|a^{2}| = a^{2} \land |a| = \sqrt{a^{2}} = \pm a \)</li>
+<li>\(|a \times b| = |a| \times |b| \land |\frac{a}{b}| = \frac{|a|}{|b|}\)</li>
+<li>\(|a + b| \leq |a| + |b|\)</li>
+</ol>
+<h3 id="resultados-útiles"><a class="header" href="#resultados-útiles">Resultados útiles</a></h3>
+<ul>
+<li>\(|x| = a \iff x = a \lor x = (-a) \)</li>
+<li>\(|x| &lt; a \iff -a &lt; x &lt; a \)</li>
+<li>\(|x| &gt; a \iff x \in (-\infty, -a)\cup(a, \infty) \implies x &lt; (-a) \lor a &lt; x\)</li>
+</ul>
+<h2 id="funciones"><a class="header" href="#funciones">Funciones</a></h2>
+<p>Una función es una regla que asigna a cada elemento de un conjunto \(\mathbf{X}\) un unico elemento \(f(x)\) de un conjunto \(\mathbf{Y}\).</p>
+<p>Para \(f\colon \mathbf{X} \longrightarrow \mathbf{Y}\), El <strong>dominio</strong> (\(Dom f\)) es \(\mathbf{X}\), mientras que \(\mathbf{Y}\) es el <strong>conjunto de llegada</strong> (o codominio). \(f(x)\) es la imagen de \(\mathbf{X}\) por \(\mathbf{f}\), es decir, a que valor llega un elemento \(\mathbf{x}\) a partir de \(\mathbf{f}\). Por el contrario, la <strong>imagen de f</strong> (\(Im f\)) son todos los valores que toma a partir de uno del conjunto \(\mathbf{X}\).</p>
+<p>Hablamos de \(y = f(x)\) con \(\mathbf{y}\) como variable <strong>dependiente</strong> y \(\mathbf{x}\) como variable <strong>independiente</strong>. Para una función sin dominio definido, lo entendemos como el conjunto real más extenso para el cual está definido.</p>
+<h3 id="recta"><a class="header" href="#recta">Recta</a></h3>
+<p>Definimos una recta por \(y = ax + b\), donde los pares \((x, y)\) del plano satisfacen esta ecuacion.</p>
+<p>Comprendemos diversas ecuaciones a partir de la anterior:</p>
+<ul>
+<li>\(x = \frac{-b}{a}, \text{con}\ y = 0\)</li>
+<li>\(a = \frac{y_2 - y_1}{x_2 - x_1}\)</li>
+<li>\(b = y - ax\)</li>
+</ul>
+<p>Y definimos dos variantes de una recta:</p>
+<ul>
+<li><strong>Paralela</strong>, aquella que tiene la misma pendiente.</li>
+<li><strong>Perpendicular</strong>, aquella que tiene pendiente inversa reciproca.</li>
+</ul>
+<h3 id="desplazamientos"><a class="header" href="#desplazamientos">Desplazamientos</a></h3>
+<p>Con \(c &gt; 0\)</p>
+<ul>
+<li>Verticales:
+<ul>
+<li>Hacia arriba: \(f(x) + c\)</li>
+<li>Hacia abajo: \(f(x) - c\)</li>
+</ul>
+</li>
+<li>Horizontales:
+<ul>
+<li>Hacia la izquierda: \(f(x + c)\)</li>
+<li>Hacia la derecha: \(f(x - c)\)</li>
+</ul>
+</li>
+</ul>
+<h3 id="estiramientos-y-reflexiones"><a class="header" href="#estiramientos-y-reflexiones">Estiramientos y reflexiones</a></h3>
+<p>Un estiramiento se da con \(c \geq 1\), mientras que una compresión se da con \(c &lt; 0\). Ambos comparten las fórmulas para el plano vertical y horizontal:</p>
+<ul>
+<li>Vertical: \(c \times f(x)\)</li>
+<li>Horizontal: \(f(c \times x)\)</li>
+</ul>
+<p>Una reflexión, por otro lado, puede darse a través de las siguientes fórmulas:</p>
+<ul>
+<li>Vertical: \(-f(x)\)</li>
+<li>Horizontal: \(f(-x)\)</li>
+</ul>
+<h3 id="funciones-pares-e-impares"><a class="header" href="#funciones-pares-e-impares">Funciones pares e impares</a></h3>
+<p>Una funcion par es aquella que satisface que \(f(x) = -f(x)\), mientras que una impar satisface que \(f(x) = -f(-x) \iff -f(x) = f(-x)\). La funcion par es simétrica con respecto al eje x, mientras que la impar es simétrica con respecto al origen.</p>
+<h3 id="operaciones-con-funciones"><a class="header" href="#operaciones-con-funciones">Operaciones con funciones</a></h3>
+<ul>
+<li>Suma: \(f(x) + g(x) = (f + g)(x)\)</li>
+<li>Multiplicación: \(f(x) * g(x) = f \times g \times x\)</li>
+<li>División: \(\frac{f}{g} = \frac{f(x)}{g(x)}\)</li>
+</ul>
+<h3 id="composición-de-funciones"><a class="header" href="#composición-de-funciones">Composición de funciones</a></h3>
+<p>Si \(g(x) \in \mathbf{A}\) y \(f(x) \in \mathbf{B}\) entonces se puede definir \(f \circ g\) como \(f(g(x))\).</p>
+<p>La imagen de \(g\) debe estar contenida dentro del dominio de \(f\) para que \(f \circ g \) esté definida, es decir, <strong>los valores que devuelve \(g(x) \longrightarrow\) valores que toma \(f(x)\)</strong></p>
+<h3 id="inyectivas-y-suryectivas-o-sobreyectivas"><a class="header" href="#inyectivas-y-suryectivas-o-sobreyectivas">Inyectivas y suryectivas (o sobreyectivas)</a></h3>
+<p>Tomando a \(f\colon \mathbf{X} \longrightarrow \mathbf{Y}\) como una función:</p>
+<p>Una función es inyectiva si \(\forall x_1, x_2 \in \mathbf{X}, x_1 \neq x_2 \implies f(x_1) \neq f(x_2)\). Por lo tanto, para que la desigualdad no se cumpla, el único caso posible es que \(x_1 = x_2\). Para demostrar que una función es inyectiva, podemos igualar \(f(x_1) = f(x_2)\) y verificar que \(x_1 = x_2\)</p>
+<p>Por otro lado, una función es suryectiva si \(Im \ \mathbf{f} = \mathbf{Y}\). Es decir, si todo elemento del contradominio es imagen de algún elemento del conjunto \(\mathbf{X}\). Puede expresarse como: \(\forall y \in \mathbf{Y}, \exists x \in \mathbf{X} \colon f(x) = y\). Para demostrarse que una función es suryectiva, se debe despejar a \(\mathbf{x}\) de la ecuación de la forma \(y = f(x)\) y probar que, al evaluar \(f(x)\) en dicho despeje, se obtiene \(\mathbf{x}\).</p>
+<p>Si una función es inyectiva y suryectiva simultáneamente, es posible calcular su <strong>inversa</strong>.</p>
+<h3 id="función-inversa"><a class="header" href="#función-inversa">Función inversa</a></h3>
+<p>Definimos la inversa de una función biyectiva \(f\colon \mathbf{X} \longrightarrow \mathbf{Y}\) denotada como \(f^{-1}\) por:</p>
+<p>\(f^{-1}(y) = x \iff f(x) = y\)</p>
+<p>Y observamos que los dominios e imágenes entre las funciones se intercalan, es decir, \(Dom \ f = Im \ f^{-1} \land Dom \ f^{-1} = Im \ f\)</p>
+<p>Para calcular la función inversa, podemos seguir los siguiente pasos:</p>
+<ol>
+<li>Reescribir la función como \(y = f(x)\)</li>
+<li>Despejar \(\mathbf{x}\)</li>
+<li>(opcional) intercambiar \(\mathbf{y}\) por \(\mathbf{x}\)</li>
+</ol>
+<p>Por ejemplo:</p>
+<p>\[
+\begin{align}
+&amp; y = \frac{1}{x} \\\
+&amp; x = \frac{1}{y} \\\
+&amp; f^{-1}(y) = \frac{1}{y} \implies f^{-1}(x) = \frac{1}{x}
+\end{align}
+\]</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../first_year/introduction_algorithms.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../first_year/discrete_math.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../first_year/introduction_algorithms.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../first_year/discrete_math.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

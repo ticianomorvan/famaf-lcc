@@ -1,0 +1,885 @@
+<!DOCTYPE HTML>
+<html lang="es" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>FAMAF - LCC</title>
+        <meta name="robots" content="noindex" />
+
+
+        <!-- Custom HTML head -->
+        <script async defer data-website-id="5cd282ea-7cb3-4047-b9bf-27ba6f4c44d3" src="https://umami-ticianomorvan.up.railway.app/umami.js"></script>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+        <!-- MathJax -->
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introducción</a></li><li class="chapter-item expanded affix "><a href="CHANGELOG.html">Historial de cambios</a></li><li class="chapter-item expanded affix "><li class="part-title">Primer año</li><li class="chapter-item expanded "><a href="first_year/introduction_algorithms.html"><strong aria-hidden="true">1.</strong> Introducción a los algoritmos</a></li><li class="chapter-item expanded "><a href="first_year/mathematical_analysis.html"><strong aria-hidden="true">2.</strong> Análisis matemático I (LCC)</a></li><li class="chapter-item expanded "><a href="first_year/discrete_math.html"><strong aria-hidden="true">3.</strong> Matemática discreta I</a></li><li class="chapter-item expanded affix "><li class="part-title">Repasos</li><li class="chapter-item expanded "><a href="reviews/discrete_math_1.html"><strong aria-hidden="true">4.</strong> Repaso Matemática Discreta (1er parcial)</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">FAMAF - LCC</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="introducción"><a class="header" href="#introducción">Introducción</a></h1>
+<p>Este es un &quot;libro&quot; digital donde yo, Ticiano Morvan, haré anotaciones, tomaré apuntes y dejaré alguna que otra resolución de ejercicios relacionados con las materias de la Licenciatura en Ciencias de la Computación de <a href="https://famaf.unc.edu.ar">FAMAF</a>.</p>
+<p><strong>Nota</strong>: Se usará lenguaje lógico y matemático para evitar obviedades o ambigüedades.</p>
+<blockquote>
+<p>Aclaración: <strong>no</strong> me hago responsable de los usos y/o fines de este material. Estos apuntes son de fabricación propia y se entregan <em>per se</em> bajo la licencia MIT.</p>
+</blockquote>
+<h2 id="canales-de-contacto"><a class="header" href="#canales-de-contacto">Canales de contacto</a></h2>
+<ul>
+<li><a href="https://github.com/ticianomorvan">GitHub</a></li>
+<li><a href="https://instagram.com/ticianomorvan">Instagram</a></li>
+<li><a href="mailto:ticiano.morvan@gmail.com">E-mail</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="historial-de-cambios"><a class="header" href="#historial-de-cambios">Historial de cambios</a></h1>
+<p>Aquí registraré los cambios realizados, así como el contenido añadido.</p>
+<ul>
+<li><a href="CHANGELOG.html#1842023">18.4.2023</a></li>
+<li><a href="CHANGELOG.html#642023">6.4.2023</a></li>
+<li><a href="CHANGELOG.html#2132023">21.3.2023</a></li>
+<li><a href="CHANGELOG.html#2032023">20.3.2023</a></li>
+</ul>
+<h2 id="1842023"><a class="header" href="#1842023">18.4.2023</a></h2>
+<ul>
+<li>Se agregó el repaso para el primer parcial de <strong>Matemática Discreta I</strong></li>
+</ul>
+<h2 id="642023"><a class="header" href="#642023">6.4.2023</a></h2>
+<ul>
+<li>Se agregaron clases sobre valor absoluto y funciones a <strong>Análisis Matemático I (LCC)</strong></li>
+</ul>
+<h2 id="2132023"><a class="header" href="#2132023">21.3.2023</a></h2>
+<ul>
+<li>Se cambió de dominio a <strong>famaf.ticianomorvan.com.ar</strong></li>
+<li>Se agregó la tabla de contenidos a cada página.</li>
+<li>Se agregó la primer clase sobre <strong>Matemática discreta I</strong></li>
+</ul>
+<h2 id="2032023"><a class="header" href="#2032023">20.3.2023</a></h2>
+<ul>
+<li>Primera versión de los apuntes <code>FAMAF-LCC</code>.</li>
+<li>Se agregó la primer clase sobre <strong>Introducción a los algoritmos</strong></li>
+<li>Se agregó la primer clase sobre <strong>Análisis Matemático I (LCC)</strong></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="introducción-a-los-algoritmos"><a class="header" href="#introducción-a-los-algoritmos">Introducción a los algoritmos</a></h1>
+<ul>
+<li><a href="first_year/introduction_algorithms.html#aritm%C3%A9tica">Aritmética</a>
+<ul>
+<li><a href="first_year/introduction_algorithms.html#f%C3%B3rmulas">Fórmulas</a></li>
+<li><a href="first_year/introduction_algorithms.html#precedencia">Precedencia</a></li>
+</ul>
+</li>
+<li><a href="first_year/introduction_algorithms.html#haskell">Haskell</a>
+<ul>
+<li><a href="first_year/introduction_algorithms.html#algunas-anotaciones-importantes">Algunas anotaciones importantes</a>
+<ul>
+<li><a href="first_year/introduction_algorithms.html#tipo-de-una-funci%C3%B3n">Tipo de una función</a></li>
+<li><a href="first_year/introduction_algorithms.html#funciones">Funciones</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Esta materia busca introducir (valga la redundancia) en conceptos básicos de la algoritmia e integrar conceptos fundamentales de la programación, utilizando principalmente el lenguaje de programación <a href="https://haskell.org">Haskell</a>.</p>
+<p>Principalmente, se desarrollan los siguientes temas:</p>
+<ul>
+<li>Razonamiento funcional, escritura formal de un algoritmo.</li>
+<li>Listas y razonamiento sobre listas, fuente de problemas y caso de estudio.</li>
+<li>Lógica, herramienta para diseñar y verficar soluciones.</li>
+</ul>
+<h2 id="aritmética"><a class="header" href="#aritmética">Aritmética</a></h2>
+<p>Permite pensar, a través de una sintaxis, en problemas aritméticos. Tenemos en cuenta diversos elementos:</p>
+<ul>
+<li>Números, a los que llamamos <strong>constantes</strong></li>
+<li>Letras, a las que llamamos <strong>variables</strong></li>
+<li>Operadores, que permiten combinar expresiones \(+, -, *, / \) y ^. Nota: se deben utilizar paréntesis entre los elementos de un operador.</li>
+<li>Relaciones, que combinan expresiones mediante operadores de relación \(\neq, =, \leq, &lt;, &gt;, \geq \)</li>
+</ul>
+<p>Por ejemplo, una expresión válida podría ser: \((3 * 2) + (4 - 5) \), mientras que una expresión inválida sería: \((2 +) * 4 - 3 \), debido a que carece de un segundo valor en la operación \((2+) \) y de un paréntesi en la segunda operación \(4 - 3 \)</p>
+<h3 id="fórmulas"><a class="header" href="#fórmulas">Fórmulas</a></h3>
+<p>A partir de la sintaxis aritmética es posible generar <em>fórmulas</em>, utilizando los operadores de relación.</p>
+<p>Por ejemplo: \((2 + 3) \neq (7 * 2) \)</p>
+<p>El resultado de la anterior fórmula es un <em>booleano</em>, es decir, un valor de verdad que puede ser <em>True</em> (verdadero) o <em>False</em> (falso), dependiendo de la expresión, en este caso sería <em>True</em>, ya que 5 es distinto de 14.</p>
+<h3 id="precedencia"><a class="header" href="#precedencia">Precedencia</a></h3>
+<p>La precedencia nos permite &quot;obviar&quot; los paréntesis que hasta ahora eran obligatorios, puesto que entendemos una relación de jerarquía entre los operadores de la siguiente forma:</p>
+<p>De mayor a menor precedencia:</p>
+<ul>
+<li>^ (potencia)</li>
+<li>\(*, /\) (producto y división)</li>
+<li>\(+, -\) (suma y resta)</li>
+<li>\(=, &lt;, \leq, &gt;, \geq\) (operadores de relación)</li>
+</ul>
+<p>Por ejemplo, la expresión \(((2 * 4) + 3) \leq ((3 ^ 4) + (2 * 3))\), se puede simplificar a \(2 * 4 + 3 \leq 3 ^ 4 + 2 * 3\)</p>
+<h2 id="haskell"><a class="header" href="#haskell">Haskell</a></h2>
+<p>Al igual que la sintaxis aritmética, <strong>Haskell</strong> es un lenguaje de programación funcional que funciona a su vez como lenguaje formal, ya que posee una sintaxis estricta con reglas definidas. Es un lenguaje interpretado, puesto que a través de <strong>GHCi</strong> (Glasgow Haskell Compiler), se pueden ejecutar expresiones del lenguaje sin tener que compilar ningún tipo de archivo.</p>
+<h3 id="algunas-anotaciones-importantes"><a class="header" href="#algunas-anotaciones-importantes">Algunas anotaciones importantes</a></h3>
+<h4 id="tipo-de-una-función"><a class="header" href="#tipo-de-una-función">Tipo de una función</a></h4>
+<p>Dentro de GHCi, es posible conocer el tipo de una función o método a través del comando <code>:type</code> o su alias <code>:t</code>. Por ejemplo, el operador <code>+</code>:</p>
+<pre><code class="language-haskell">:t (+)
+(+) :: Num a =&gt; a -&gt; a -&gt; a
+</code></pre>
+<p>Esto nos indica que el operador <code>+</code> (determinado por el símbolo <code>::</code>) toma dos valores <code>a</code> y devuelve otro <code>a</code>, que como determina la sintaxis <code>Num a</code>, será del tipo numérico, o más específicamente de la clase <code>Num</code>.</p>
+<h4 id="funciones"><a class="header" href="#funciones">Funciones</a></h4>
+<p>Una función es <em>un conjunto de reglas que indica para cada valor de entrada cual será el resultado</em>. En Haskell, para definir una función deberemos primero indentificar que tipo tendrá, y luego desarrollar su funcionamiento. Por ejemplo, para una función que tome un nombre como valor de entrada para luego devolver un saludo, podríamos hacerlo de la siguiente forma:</p>
+<pre><code class="language-haskell">greet :: [Char] -&gt; [Char];
+greet name = &quot;Hola, &quot; ++ name;
+</code></pre>
+<p>Donde podemos ver que definimos que <code>greet</code> tomará un valor de entrada del tipo <code>[Char]</code> (usado normalmente para cadenas de caracteres) y devolverá otro del mismo tipo. Debajo, vemos la definición propia de la función, donde tomando un argumento <code>name</code>, procederemos a unirlo a una frase <code>&quot;Hola, &quot;</code>, a través del operador <code>++</code>. Es importante entender que el operador <code>++</code> es solo válido para este tipo de valores, puesto que no funciona con valores numéricos.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="análisis-matemático-i-lcc"><a class="header" href="#análisis-matemático-i-lcc">Análisis matemático I (LCC)</a></h1>
+<ul>
+<li><a href="first_year/mathematical_analysis.html#propiedades-de-los-n%C3%BAmeros-reales-mathbbr">Propiedades de los números reales (\mathbb{R})</a></li>
+<li><a href="first_year/mathematical_analysis.html#ecuaciones">Ecuaciones</a>
+<ul>
+<li><a href="first_year/mathematical_analysis.html#ecuaciones-cuadr%C3%A1ticas">Ecuaciones cuadráticas</a></li>
+</ul>
+</li>
+<li><a href="first_year/mathematical_analysis.html#desigualdades">Desigualdades</a>
+<ul>
+<li><a href="first_year/mathematical_analysis.html#propiedades">Propiedades</a></li>
+<li><a href="first_year/mathematical_analysis.html#reglas">Reglas</a></li>
+<li><a href="first_year/mathematical_analysis.html#intervalos-y-conjuntos">Intervalos y conjuntos</a></li>
+</ul>
+</li>
+<li><a href="first_year/mathematical_analysis.html#valor-absoluto">Valor absoluto</a>
+<ul>
+<li><a href="first_year/mathematical_analysis.html#propiedades-1">Propiedades</a></li>
+<li><a href="first_year/mathematical_analysis.html#resultados-%C3%BAtiles">Resultados útiles</a></li>
+</ul>
+</li>
+<li><a href="first_year/mathematical_analysis.html#funciones">Funciones</a>
+<ul>
+<li><a href="first_year/mathematical_analysis.html#recta">Recta</a></li>
+<li><a href="first_year/mathematical_analysis.html#desplazamientos">Desplazamientos</a></li>
+<li><a href="first_year/mathematical_analysis.html#estiramientos-y-reflexiones">Estiramientos y reflexiones</a></li>
+<li><a href="first_year/mathematical_analysis.html#funciones-pares-e-impares">Funciones pares e impares</a></li>
+<li><a href="first_year/mathematical_analysis.html#operaciones-con-funciones">Operaciones con funciones</a></li>
+<li><a href="first_year/mathematical_analysis.html#composici%C3%B3n-de-funciones">Composición de funciones</a></li>
+<li><a href="first_year/mathematical_analysis.html#inyectivas-y-suryectivas-o-sobreyectivas">Inyectivas y suryectivas (o sobreyectivas)</a></li>
+<li><a href="first_year/mathematical_analysis.html#funci%C3%B3n-inversa">Función inversa</a></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>Conjunto</strong>: colección de elementos que comparten peculiaridades.</p>
+</blockquote>
+<p>Para el análisis, comprendemos diversos conjuntos numéricos.</p>
+<ul>
+<li><strong>Naturales</strong>: \(\mathbb{N} = \{ 1, 2, 3, 4, 5, ... \} \)</li>
+<li><strong>Enteros</strong>: \(\mathbb{Z} = \{ -2, -1, 0, 1, 2, ... \} \)</li>
+<li><strong>Racionales</strong>: \(\mathbb{Q} = \{ \frac{1}{2}, \frac{1}{4}, \frac{2}{3}, ... \} \)</li>
+<li><strong>Irracionales</strong>: \(\mathbb{II} = \{ \sqrt{2}, \sqrt{3}, \sqrt{5}, ... \} \)</li>
+<li><strong>Reales</strong>: \(\mathbb{R} = \mathbb{N}\cup\mathbb{Z}\cup\mathbb{Q}\cup\mathbb{II} \)</li>
+</ul>
+<p>Partiendo desde el conjunto de los números naturales, comenzamos a notar diversas particularidades.</p>
+<ul>
+<li>Para todo \(\mathbb{N}\), su suma y su producto darán como resultado otro \(\mathbb{N}\). Sin embargo, su diferencia no se comporta de la misma manera.</li>
+<li>Para resolver este problema, se incorporan el conjunto de los \(\mathbb{Z}\), que incluye los números negativos y el elemento neutro, llamado cero. Pero a su vez, la división entre dos enteros no corresponde siempre a otro igual.</li>
+<li>Entonces, es que surgen los \(\mathbb{Q}\) de la forma \(\frac{m}{n}\), donde \(m\in\mathbb{Z}\) y \(n\in\mathbb{Z}\).</li>
+</ul>
+<p>A los números racionales o números del conjunto \(\mathbb{Q}\), podemos expresarlos de forma <strong>decimal</strong> y forma <strong>fraccionaria</strong>. La decimal pretende demostrar la parte <em>no entera</em> del número, de forma <strong>finita</strong> o <strong>infinita periódica</strong>, por ejemplo \(1.25\) ó \(1.\overline{33}\), donde este último contiene infinitas repeticiones del \(.33\).</p>
+<p>Las fracciones tienen diversas propiedades interesantes:</p>
+<ul>
+<li>\(\frac{m}{0}\) <strong>NO</strong> está definido dentro de \(\mathbb{R}\).</li>
+<li>Dos fracciones son equivalentes si \(\frac{m}{n}, \frac{p}{q}\) con \(m * q = n * q\)</li>
+<li>\(\frac{m}{n}\) es irreducible si \(m\) y \(n\) no tienen divisores en común.</li>
+<li>La suma de fracciones se define como \(\frac{m}{n} + \frac{p}{q} = \frac{mq + np}{nq}\)</li>
+<li>La multiplicación de fracciones se define como \(\frac{m}{n} * \frac{p}{q} = \frac{mp}{nq}\)</li>
+<li>La división de fracciones se define como \(\frac{\frac{m}{n}}{\frac{p}{q}} = \frac{m}{n} * \frac{q}{p} = \frac{mq}{np}\)</li>
+</ul>
+<p>Cabe aclarar que no todos los números tienen representación infinita periódica, por lo que surgen los <strong>Irracionales</strong> o \(\mathbb{II}\), que coexisten con los demás conjuntos dentro del conjunto de los reales.</p>
+<p>Para representar gráficamente a los números reales, utilizamos la <strong>recta numérica</strong>, que es una línea horizontal numerada y que no termina en ninguno de sus extremos. Es importante colocar el \(0\) entre los números positivos y los negativos, que se suelen colocar por convención a la derecha e izquierda del cero respectivamente.</p>
+<h2 id="propiedades-de-los-números-reales-mathbbr"><a class="header" href="#propiedades-de-los-números-reales-mathbbr">Propiedades de los números reales \(\mathbb{R}\)</a></h2>
+<blockquote>
+<p>Nota: estas propiedades valen \(\forall a,b,c\in\mathbb{R}\)</p>
+</blockquote>
+<ol>
+<li>Propiedad asociativa de la suma: \((a + b) + c = a + (b + c)\)</li>
+<li>Existe un elemento neutro para la suma: \(\exists0\in\mathbb{R}: 0 + a = a + 0 = a\)</li>
+<li>Existe un elemento opuesto para la suma: \(\exists(-a)\in\mathbb{R}: a + (-a) = 0\)</li>
+<li>Propiedad conmutativa de la suma: \(a + b = b + a\)</li>
+<li>Propiedad asociativa del producto: \((a * b) * c = a * (b * c)\)</li>
+<li>Existe un elemento neutro para el producto: \(\exists1\in\mathbb{R}: 1 * a = a * 1 = a\)</li>
+<li>Existe un inverso para el producto: \(\exists a^{-1}\in\mathbb{R}: a * a^{-1} = 1\)</li>
+<li>Propiedad conmutativa del producto: \(a * b = b * a\)</li>
+<li>Propiedad distributiva del producto: \(a(b + c) = ab + bc\)</li>
+</ol>
+<blockquote>
+<p>Observación: \(a * b = 0 \implies a = 0 \lor b = 0\)</p>
+</blockquote>
+<p><strong>Radicación</strong>: Se define la raíz cuadrada de \(a\) siendo un número positivo, al número también positivo \(b\) tal que \(b ^ 2 = a\) y \(\sqrt{a} = b\), como también vale que \((- b) ^ 2 = a\) y \(-\sqrt{a} = -b\). Es importante aclarar que vale <em>análogamente</em> para las raíces <strong>pares</strong>.</p>
+<p>A su vez también se definen las raíces de índice <strong>impar</strong> para todos los \(\mathbb{R}\).</p>
+<p>Así, extendremos la definición de <strong>potencia</strong> para todo número positivo de exponente racional:</p>
+<blockquote>
+<p>\[a ^ {\frac{m}{n}} = \sqrt[n]{a ^ m}\]</p>
+</blockquote>
+<p>Y podemos agregar más propiedades a partir de dichas definiciones:</p>
+<ol start="10">
+<li>Propiedad distributiva de la potencia respecto al producto: \((a * b) ^ n = a ^ n * b ^ n \) con \(n\in\mathbb{Q}\)</li>
+<li>Producto de potencias de igual base: \(a ^ n * a ^ m = a ^ {m + n}\) para \(m, n\in\mathbb{Q}\)</li>
+<li>Diferencia de cuadrados: \(a ^ 2 - b ^ 2 = (a + b) (a - b)\)</li>
+<li>Cuadrado del binomio: \((a + b) ^ 2 = a ^ 2 + 2ab + b ^ 2\)</li>
+</ol>
+<h2 id="ecuaciones"><a class="header" href="#ecuaciones">Ecuaciones</a></h2>
+<p>Una ecuación es <em>una igualdad entre expresiones algebraicas que contienen una o más incógnitas</em>.</p>
+<p>Para resolver ecuaciones, aplicamos las propiedades de \(\mathbb{R}\) para poder <em>despejar</em> la incógnita y encontrar su valor.</p>
+<p>Por ejemplo:</p>
+<p>\[2x + 6 = 18 \]
+\[2x + 6 + (-6) = 18 + (-6)\]
+\[2x \times \frac{1}{2} = 12 \times \frac{1}{2}\]
+\[\Rightarrow x = 6 \]</p>
+<p>Es importante notar que <em>resolver una ecuación</em> es encontrar el conjunto de soluciones para los cuales la igualdad se cumple, es decir, el <strong>conjunto solución</strong>.</p>
+<p>Definimos, por ahora, dos tipos de ecuaciones:</p>
+<ul>
+<li>Ecuaciones lineales: donde la/s incógnitas se encuentran a potencia \(1\).</li>
+<li>Ecuaciones cuadráticas: donde la/s incógnitas se encuentran a potencia \(2\).</li>
+</ul>
+<h3 id="ecuaciones-cuadráticas"><a class="header" href="#ecuaciones-cuadráticas">Ecuaciones cuadráticas</a></h3>
+<p>Si bien cualquier ecuación que contenga una incógnita a potencia \(2\) se pueden llamar <em>cuadráticas</em>, encontramos un caso especial de éstas, donde \(ax^2 + bx + c = 0\) para todo \(a,b,c\in\mathbb{R}\). Para este tipo de ecuaciones, buscaremos las llamadas <strong>raíces</strong> (es decir, aquellos números que al sustituir a la incógnita, mantienen la igualdad a \(0\)). Para ello, podemos utilizar dos métodos:</p>
+<ol>
+<li>Bhaskara o fórmula resolvente, que resultará en las dos raíces a partir del \(\pm\)</li>
+</ol>
+<p>\[x_1,_2 = \frac{-b \pm \sqrt{b ^ 2 - 4ac}}{2a}\]</p>
+<ol start="2">
+<li>Completar cuadrados, en el que buscaremos escribir la ecuación cuadrática de la forma:</li>
+</ol>
+<p>\[(x + a) ^ 2 + b\]</p>
+<h2 id="desigualdades"><a class="header" href="#desigualdades">Desigualdades</a></h2>
+<p>Una desigualdad comprende dos expresiones que pueden ser distintas o iguales, pero no directamente iguales. Por ejemplo: \(x + 3 &lt; 5\)</p>
+<h3 id="propiedades"><a class="header" href="#propiedades">Propiedades</a></h3>
+<ol>
+<li>\(a &gt; 0 \land b &gt; 0 \implies a + b &gt; 0 \land a \times b &gt; 0\)</li>
+<li>\(a \in \mathbb{R} \implies a = 0 \lor a &gt; 0 \lor (-a) &gt; 0\)</li>
+</ol>
+<p>Definimos un número positivo como \(a &gt; 0\), mientras que un negativo \(a &lt; 0\). También, sabemos que un número es <strong>mayor</strong> a otro si \(a - b &gt; 0\)</p>
+<h3 id="reglas"><a class="header" href="#reglas">Reglas</a></h3>
+<ul>
+<li>\(a &gt; b \land b &gt; c \implies a &gt; c\)</li>
+<li>\(a &gt; b \implies a + c &gt; b + c,\ \forall c \in \mathbb{R}\)</li>
+<li>\(a &gt; b \land c &gt; d \implies a + c &gt; b + d\)</li>
+<li>\(a &gt; b \land c &gt; 0 \implies a \times c &gt; b \times c\)</li>
+<li>\(a &gt; b \land c &lt; 0 \implies a \times c &lt; b \times c\)</li>
+</ul>
+<h3 id="intervalos-y-conjuntos"><a class="header" href="#intervalos-y-conjuntos">Intervalos y conjuntos</a></h3>
+<p>Recordando la definición de conjuntos, podemos definir las operaciones entre ellos:</p>
+<ul>
+<li>Unión: \(\mathbf{A}\cup\mathbf{B} = \{ x \in \mathbf{A} \lor x \in \mathbf{B} \}\)</li>
+<li>Intersección: \(\mathbf{A}\cap\mathbf{B} = \{ x \in \mathbf{A} \land x \in \mathbf{B}\}\)</li>
+</ul>
+<p>Además de la notación de conjuntos, podemos definir <strong>intervalos</strong> de números reales:</p>
+<ul>
+<li>Abierto: \((a, b) \implies \{ x \in \mathbb{R} \colon a &lt; x &lt; b \}\)</li>
+<li>Cerrado: \([a, b] \implies \{ x \in \mathbb{R} \colon a \leq x \leq b \}\)</li>
+<li>Semiabierto: \([a, b) \implies \{ x \in \mathbb{R} \colon a \leq x &lt; b \} \)</li>
+</ul>
+<p>Aunque también tenemos intervalos infinitos, por ejemplo: \([a, \infty+) = \{ x \in \mathbb{R} \colon a \leq x \}\)</p>
+<blockquote>
+<p>Nota: si aparece el infinito en un intervalo, debe ser <strong>siempre</strong> abierto por su lado.</p>
+</blockquote>
+<h2 id="valor-absoluto"><a class="header" href="#valor-absoluto">Valor absoluto</a></h2>
+<p>Podemos definir el valor absoluto de \(a\) que denotamos \(|a|\) como:</p>
+<p>\[
+|x| =
+\begin{cases}
+\displaylines{x, &amp; x \geq 0 \\\ -x, &amp; x &lt; 0}
+\end{cases}
+\]</p>
+<p>Podemos entender también la definición de valor absoluto como la <strong>distancia al cero</strong> a la que se encuentra un número. Por ejemplo, \(|-5| = 5\), es decir, el \(-5\) se encuentra a cinco unidades del cero.</p>
+<h3 id="propiedades-1"><a class="header" href="#propiedades-1">Propiedades</a></h3>
+<ol>
+<li>\(|a^{2}| = a^{2} \land |a| = \sqrt{a^{2}} = \pm a \)</li>
+<li>\(|a \times b| = |a| \times |b| \land |\frac{a}{b}| = \frac{|a|}{|b|}\)</li>
+<li>\(|a + b| \leq |a| + |b|\)</li>
+</ol>
+<h3 id="resultados-útiles"><a class="header" href="#resultados-útiles">Resultados útiles</a></h3>
+<ul>
+<li>\(|x| = a \iff x = a \lor x = (-a) \)</li>
+<li>\(|x| &lt; a \iff -a &lt; x &lt; a \)</li>
+<li>\(|x| &gt; a \iff x \in (-\infty, -a)\cup(a, \infty) \implies x &lt; (-a) \lor a &lt; x\)</li>
+</ul>
+<h2 id="funciones-1"><a class="header" href="#funciones-1">Funciones</a></h2>
+<p>Una función es una regla que asigna a cada elemento de un conjunto \(\mathbf{X}\) un unico elemento \(f(x)\) de un conjunto \(\mathbf{Y}\).</p>
+<p>Para \(f\colon \mathbf{X} \longrightarrow \mathbf{Y}\), El <strong>dominio</strong> (\(Dom f\)) es \(\mathbf{X}\), mientras que \(\mathbf{Y}\) es el <strong>conjunto de llegada</strong> (o codominio). \(f(x)\) es la imagen de \(\mathbf{X}\) por \(\mathbf{f}\), es decir, a que valor llega un elemento \(\mathbf{x}\) a partir de \(\mathbf{f}\). Por el contrario, la <strong>imagen de f</strong> (\(Im f\)) son todos los valores que toma a partir de uno del conjunto \(\mathbf{X}\).</p>
+<p>Hablamos de \(y = f(x)\) con \(\mathbf{y}\) como variable <strong>dependiente</strong> y \(\mathbf{x}\) como variable <strong>independiente</strong>. Para una función sin dominio definido, lo entendemos como el conjunto real más extenso para el cual está definido.</p>
+<h3 id="recta"><a class="header" href="#recta">Recta</a></h3>
+<p>Definimos una recta por \(y = ax + b\), donde los pares \((x, y)\) del plano satisfacen esta ecuacion.</p>
+<p>Comprendemos diversas ecuaciones a partir de la anterior:</p>
+<ul>
+<li>\(x = \frac{-b}{a}, \text{con}\ y = 0\)</li>
+<li>\(a = \frac{y_2 - y_1}{x_2 - x_1}\)</li>
+<li>\(b = y - ax\)</li>
+</ul>
+<p>Y definimos dos variantes de una recta:</p>
+<ul>
+<li><strong>Paralela</strong>, aquella que tiene la misma pendiente.</li>
+<li><strong>Perpendicular</strong>, aquella que tiene pendiente inversa reciproca.</li>
+</ul>
+<h3 id="desplazamientos"><a class="header" href="#desplazamientos">Desplazamientos</a></h3>
+<p>Con \(c &gt; 0\)</p>
+<ul>
+<li>Verticales:
+<ul>
+<li>Hacia arriba: \(f(x) + c\)</li>
+<li>Hacia abajo: \(f(x) - c\)</li>
+</ul>
+</li>
+<li>Horizontales:
+<ul>
+<li>Hacia la izquierda: \(f(x + c)\)</li>
+<li>Hacia la derecha: \(f(x - c)\)</li>
+</ul>
+</li>
+</ul>
+<h3 id="estiramientos-y-reflexiones"><a class="header" href="#estiramientos-y-reflexiones">Estiramientos y reflexiones</a></h3>
+<p>Un estiramiento se da con \(c \geq 1\), mientras que una compresión se da con \(c &lt; 0\). Ambos comparten las fórmulas para el plano vertical y horizontal:</p>
+<ul>
+<li>Vertical: \(c \times f(x)\)</li>
+<li>Horizontal: \(f(c \times x)\)</li>
+</ul>
+<p>Una reflexión, por otro lado, puede darse a través de las siguientes fórmulas:</p>
+<ul>
+<li>Vertical: \(-f(x)\)</li>
+<li>Horizontal: \(f(-x)\)</li>
+</ul>
+<h3 id="funciones-pares-e-impares"><a class="header" href="#funciones-pares-e-impares">Funciones pares e impares</a></h3>
+<p>Una funcion par es aquella que satisface que \(f(x) = -f(x)\), mientras que una impar satisface que \(f(x) = -f(-x) \iff -f(x) = f(-x)\). La funcion par es simétrica con respecto al eje x, mientras que la impar es simétrica con respecto al origen.</p>
+<h3 id="operaciones-con-funciones"><a class="header" href="#operaciones-con-funciones">Operaciones con funciones</a></h3>
+<ul>
+<li>Suma: \(f(x) + g(x) = (f + g)(x)\)</li>
+<li>Multiplicación: \(f(x) * g(x) = f \times g \times x\)</li>
+<li>División: \(\frac{f}{g} = \frac{f(x)}{g(x)}\)</li>
+</ul>
+<h3 id="composición-de-funciones"><a class="header" href="#composición-de-funciones">Composición de funciones</a></h3>
+<p>Si \(g(x) \in \mathbf{A}\) y \(f(x) \in \mathbf{B}\) entonces se puede definir \(f \circ g\) como \(f(g(x))\).</p>
+<p>La imagen de \(g\) debe estar contenida dentro del dominio de \(f\) para que \(f \circ g \) esté definida, es decir, <strong>los valores que devuelve \(g(x) \longrightarrow\) valores que toma \(f(x)\)</strong></p>
+<h3 id="inyectivas-y-suryectivas-o-sobreyectivas"><a class="header" href="#inyectivas-y-suryectivas-o-sobreyectivas">Inyectivas y suryectivas (o sobreyectivas)</a></h3>
+<p>Tomando a \(f\colon \mathbf{X} \longrightarrow \mathbf{Y}\) como una función:</p>
+<p>Una función es inyectiva si \(\forall x_1, x_2 \in \mathbf{X}, x_1 \neq x_2 \implies f(x_1) \neq f(x_2)\). Por lo tanto, para que la desigualdad no se cumpla, el único caso posible es que \(x_1 = x_2\). Para demostrar que una función es inyectiva, podemos igualar \(f(x_1) = f(x_2)\) y verificar que \(x_1 = x_2\)</p>
+<p>Por otro lado, una función es suryectiva si \(Im \ \mathbf{f} = \mathbf{Y}\). Es decir, si todo elemento del contradominio es imagen de algún elemento del conjunto \(\mathbf{X}\). Puede expresarse como: \(\forall y \in \mathbf{Y}, \exists x \in \mathbf{X} \colon f(x) = y\). Para demostrarse que una función es suryectiva, se debe despejar a \(\mathbf{x}\) de la ecuación de la forma \(y = f(x)\) y probar que, al evaluar \(f(x)\) en dicho despeje, se obtiene \(\mathbf{x}\).</p>
+<p>Si una función es inyectiva y suryectiva simultáneamente, es posible calcular su <strong>inversa</strong>.</p>
+<h3 id="función-inversa"><a class="header" href="#función-inversa">Función inversa</a></h3>
+<p>Definimos la inversa de una función biyectiva \(f\colon \mathbf{X} \longrightarrow \mathbf{Y}\) denotada como \(f^{-1}\) por:</p>
+<p>\(f^{-1}(y) = x \iff f(x) = y\)</p>
+<p>Y observamos que los dominios e imágenes entre las funciones se intercalan, es decir, \(Dom \ f = Im \ f^{-1} \land Dom \ f^{-1} = Im \ f\)</p>
+<p>Para calcular la función inversa, podemos seguir los siguiente pasos:</p>
+<ol>
+<li>Reescribir la función como \(y = f(x)\)</li>
+<li>Despejar \(\mathbf{x}\)</li>
+<li>(opcional) intercambiar \(\mathbf{y}\) por \(\mathbf{x}\)</li>
+</ol>
+<p>Por ejemplo:</p>
+<p>\[
+\begin{align}
+&amp; y = \frac{1}{x} \\\
+&amp; x = \frac{1}{y} \\\
+&amp; f^{-1}(y) = \frac{1}{y} \implies f^{-1}(x) = \frac{1}{x}
+\end{align}
+\]</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="matemática-discreta-i"><a class="header" href="#matemática-discreta-i">Matemática discreta I</a></h1>
+<ul>
+<li><a href="first_year/discrete_math.html#axiomas-de-los-enteros">Axiomas de los enteros</a>
+<ul>
+<li><a href="first_year/discrete_math.html#algunas-observaciones-y-definiciones-importantes">Algunas observaciones y definiciones importantes</a>
+<ul>
+<li><a href="first_year/discrete_math.html#resta">Resta</a></li>
+<li><a href="first_year/discrete_math.html#regla-de-los-signos">Regla de los signos</a></li>
+<li><a href="first_year/discrete_math.html#significado-natural-de-las-desigualdades">Significado natural de las desigualdades</a></li>
+<li><a href="first_year/discrete_math.html#n%C3%BAmeros-positivos-y-negativos">Números positivos y negativos</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="first_year/discrete_math.html#orden">Orden</a>
+<ul>
+<li><a href="first_year/discrete_math.html#relaciones">Relaciones</a></li>
+</ul>
+</li>
+<li><a href="first_year/discrete_math.html#cotas">Cotas</a></li>
+</ul>
+<p>En esta materia se tomarán principalmente los conjuntos de los números naturales \(\mathbb{R}\) y los números enteros \(\mathbb{Z}\), ya que son aquellos que nombramos <strong>discretos</strong>, debido a la distancia que separa a cada uno de sus elementos.</p>
+<p>Originalmente, comprendemos dos operaciones en \(\mathbb{N}\) que luego extendemos a \(\mathbb{Z}\): la <strong>suma</strong> y el <strong>producto</strong>. Ambos serán tomados como obvios y no se demostrarán.</p>
+<p>A partir de esa aclaración, podremos definir entonces a los <strong>axiomas</strong>, que funcionan como herramientas para demostrar propiedades de \(\mathbb{Z}\) y tampoco se demostrarán.</p>
+<h2 id="axiomas-de-los-enteros"><a class="header" href="#axiomas-de-los-enteros">Axiomas de los enteros</a></h2>
+<blockquote>
+<p>En todos los casos, \(\forall a,b,c,d \in \mathbb{Z}\)</p>
+</blockquote>
+<ul>
+<li>\(I_1: a + b \in \mathbb{Z} \land a \times b \in \mathbb{Z}\)</li>
+<li>\(I_2:\) La suma y el producto son <strong>conmutativas</strong> (conmutatividad)
+\[a + b = b + a \land a \times b = b \times a\]</li>
+<li>\(I_3:\) La suma y el producto son <strong>asociativas</strong> (asociatividad)
+\[(a + b) + c = a + (b + c) \land (a \times b) \times c = a \times (b \times c)\]</li>
+<li>\(I_4:\) Existe un elemento neutro
+\[\exists 0, 1 \in \mathbb{Z}: a + 0 = a \land a \times 1 = a\]</li>
+<li>\(I_5:\) Relación entre la suma y el producto: <strong>distributiva</strong>
+\[a \times (b + c) = a \times b + a \times c\]</li>
+<li>\(I_6:\) Existe un <strong>único</strong> inverso aditivo
+\[\exists! (-a) \in \mathbb{Z}: a + (-a) = 0\]</li>
+<li>\(I_7:\) Cancelación
+\[a \neq 0 \land ab = ac \implies b = c\]</li>
+<li>\(I_8:\) Ley de la <strong>tricotomía</strong>, solo puede cumplirse uno de los siguientes casos:
+\[a &lt; b \lor a = b \lor b &lt; a\]</li>
+<li>\(I_9:\) Ley de la <strong>transitividad</strong>:
+\[a &lt; b \land b &lt; c \implies a &lt; c\]</li>
+<li>\(I_{10}:\) Compatibilidad del orden con la suma:
+\[a &lt; b \implies a + c &lt; b + c\]</li>
+<li>\(I_{11}:\) Compatibilidad del orden con el producto:
+\[a &lt; b \land 0 &lt; c \implies a \times c &lt; b \times c\]</li>
+<li>\(I_{12}:\) \(\mathbb{X}\subseteq\mathbb{Z} \land \mathbb{X} \neq \emptyset \land \mathbb{X}\ \text{tiene cota inferior}\implies \mathbb{X}\ \text{tiene un mínimo}\)</li>
+</ul>
+<h3 id="algunas-observaciones-y-definiciones-importantes"><a class="header" href="#algunas-observaciones-y-definiciones-importantes">Algunas observaciones y definiciones importantes</a></h3>
+<h4 id="resta"><a class="header" href="#resta">Resta</a></h4>
+<p>\(a, b \in \mathbb{Z}: a - b = a + (-b)\)</p>
+<h4 id="regla-de-los-signos"><a class="header" href="#regla-de-los-signos">Regla de los signos</a></h4>
+<p>\(a, b \in \mathbb{Z} \implies (-a)(-b) = ab \land (-a)b = a(-b) = -(ab) \)</p>
+<h4 id="significado-natural-de-las-desigualdades"><a class="header" href="#significado-natural-de-las-desigualdades">Significado natural de las desigualdades</a></h4>
+<ul>
+<li>\(a &gt; b \implies b &lt; a\)</li>
+<li>\(a \leq b \implies a = b \lor a &lt; b\)</li>
+<li>\(a \geq b \implies a = b \lor b &lt; a\)</li>
+</ul>
+<blockquote>
+<p><strong>Nota</strong>: al comprender los nuevos significados de \(&gt;, \geq,\) y \(\leq\), obtendremos una versión más general de los axiomas \(I_9, I_{10}, I_{11}\) y \(I_{12}\)</p>
+</blockquote>
+<h4 id="números-positivos-y-negativos"><a class="header" href="#números-positivos-y-negativos">Números positivos y negativos</a></h4>
+<ul>
+<li>Positivo: \(a \in \mathbb{Z}: a &gt; 0\)</li>
+<li>Negativo: \(a \in \mathbb{Z}: a &lt; 0\)</li>
+</ul>
+<h2 id="orden"><a class="header" href="#orden">Orden</a></h2>
+<p>El orden en los enteros nos permite diferenciarlos y ubicarlos en base a su valor, para lograr una visión organizada de su extensión como conjunto. Es de esta percepción que surgen los axiomas de tricotomía, transitividad, etc. Véase <a href="first_year/discrete_math.html#axiomas-de-los-enteros">Axiomas de los enteros</a>.</p>
+<h3 id="relaciones"><a class="header" href="#relaciones">Relaciones</a></h3>
+<p>Encontramos que, a partir de los operadores de orden \(&gt;, &lt;, \leq, \) y \(\geq\), podemos encontrar ciertas propiedades.</p>
+<p>Por ejemplo, para \(\leq\) con \(a,b,c, \in \mathbb{Z}\):</p>
+<ul>
+<li><strong>Reflexividad</strong>: \(a \leq a: a = a \implies a \leq a\)</li>
+<li><strong>Antisimetría</strong>: \(a \leq b \land b \leq a \implies a = b\)
+\[
+\begin{align}
+a &lt; b \land b &lt; a \implies \text{Absurdo}\newline
+a &lt; b \land b = a \implies \text{Absurdo}\newline
+a  b \land b &lt; a \implies \text{Absurdo}\newline
+a = b \land b = a \implies a = b
+\end{align}
+\]</li>
+<li><strong>Transitividad</strong>: \(a \leq b \land b \leq c \implies a \leq c\)</li>
+</ul>
+<p>Es importante observar que:</p>
+<ul>
+<li>\(&lt;\) <strong>no</strong> es una relación de orden.</li>
+<li>\(=\) es una <strong>relación de equivalencia</strong> pues es <strong>simétrica</strong>.</li>
+<li>Para negar:
+<ul>
+<li>\(\neq: a \neq b \implies a &lt; b \lor b &lt; a\)</li>
+<li>\(\ngeq: a \ngeq b \implies a = b \lor b &lt; a \)</li>
+</ul>
+</li>
+</ul>
+<h2 id="cotas"><a class="header" href="#cotas">Cotas</a></h2>
+<p>Para \(\mathbb{X} \subseteq \mathbb{Z}\), definimos la cota inferior como \(b \in \mathbb{X}: b \leq a, \forall a \in \mathbb{X}\). Es decir, una cota inferior es el valor más pequeño de un conjunto.</p>
+<p>Para dar sentido entonces al axioma \(I_{12}\), definimos al <strong>mínimo</strong> de un conjunto como la cota inferior \(b\) de un conjunto \(\mathbb{X}\) que a su vez cumple que \(b \in \mathbb{X}\), o sea, que forma parte del conjunto.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="repaso-matemática-discreta"><a class="header" href="#repaso-matemática-discreta">Repaso: Matemática Discreta.</a></h1>
+<ul>
+<li><a href="reviews/discrete_math_1.html#enteros">Enteros</a>
+<ul>
+<li><a href="reviews/discrete_math_1.html#axiomas">Axiomas</a></li>
+<li><a href="reviews/discrete_math_1.html#cotas">Cotas</a></li>
+</ul>
+</li>
+<li><a href="reviews/discrete_math_1.html#recursi%C3%B3n-e-inducci%C3%B3n">Recursión e inducción</a>
+<ul>
+<li><a href="reviews/discrete_math_1.html#sumatoria">Sumatoria</a></li>
+<li><a href="reviews/discrete_math_1.html#productoria">Productoria</a></li>
+<li><a href="reviews/discrete_math_1.html#inducci%C3%B3n">Inducción</a></li>
+</ul>
+</li>
+<li><a href="reviews/discrete_math_1.html#conteo">Conteo</a>
+<ul>
+<li><a href="reviews/discrete_math_1.html#principio-de-adici%C3%B3n">Principio de adición</a></li>
+<li><a href="reviews/discrete_math_1.html#principio-de-multiplicaci%C3%B3n">Principio de multiplicación</a></li>
+<li><a href="reviews/discrete_math_1.html#selecciones-ordenadas-con-repetici%C3%B3n">Selecciones ordenadas con repetición</a></li>
+<li><a href="reviews/discrete_math_1.html#selecciones-ordenadas-sin-repetici%C3%B3n">Selecciones ordenadas sin repetición</a></li>
+<li><a href="reviews/discrete_math_1.html#selecciones-sin-orden">Selecciones sin orden</a></li>
+<li><a href="reviews/discrete_math_1.html#teorema-del-binomio">Teorema del binomio</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="enteros"><a class="header" href="#enteros">Enteros</a></h2>
+<h3 id="axiomas"><a class="header" href="#axiomas">Axiomas</a></h3>
+<blockquote>
+<p>Axioma: propiedad que no se demuestra y que se utiliza para demostrar otras.</p>
+</blockquote>
+<ol>
+<li>\(a + b, a \times b \in \mathbb{Z}\)</li>
+<li>\(a + b = b + a \land a \times b = b \times a\)</li>
+<li>\(a + (b + c) = (a + b) + c \land a \times (b \times c) = (a \times b) \times c \)</li>
+<li>\(\exists\ 0, 1 \colon a + 0 = a \land a \times 1 = a\)</li>
+<li>\(a \times (b + c) = ac + bc\)</li>
+<li>\(\forall a \in \mathbb{Z}, \exists!\ (-a) \in \mathbb{Z} \colon\ a + (-a) = 0\)</li>
+<li>\(a \neq 0 \land ab = bc \implies b = c\)</li>
+<li>\(a &lt; b \lor a = b \lor b &gt; a \longrightarrow\) <strong>Tricotomía</strong></li>
+<li>\(a &lt; b \land b &lt; c \implies a &lt; c \longrightarrow\) <strong>Transitividad</strong></li>
+<li>\(a &lt; b \implies a + c &lt; b + c\)</li>
+<li>\(a &lt; b \land c &gt; 0 \implies ac &lt; bc\)</li>
+<li>\(\forall\ X \subseteq \mathbb{Z},\ \exists\ b \in \mathbb{X} \colon\ b \leq a,\ \forall a \in \mathbb{X} \)</li>
+</ol>
+<p>Entendemos las propiedades de \(\leq\)</p>
+<ul>
+<li>\(a \leq a \implies a = a \longrightarrow\) <strong>Reflexividad</strong></li>
+<li>\(a \leq b \land b \leq a \implies a = b \longrightarrow\) <strong>Antisimetría</strong></li>
+<li>\(a \leq b \land b \leq c = a \leq c \longrightarrow\) <strong>Transitividad</strong></li>
+</ul>
+<p>Y observamos que</p>
+<ul>
+<li>\(&lt;\) <strong>no</strong> es una relación de orden.</li>
+<li>\(=\) es una relación de equivalencia pues es <strong>simétrica</strong>.</li>
+<li>Para negar \(\leq\) ó \(=\), entendemos que \(a \ne b \implies a &gt; b \lor a &lt; b\) y \(a \nless b \implies a &gt; b \lor a = b\)</li>
+</ul>
+<h3 id="cotas-1"><a class="header" href="#cotas-1">Cotas</a></h3>
+<p>Un conjunto \(\mathbb{X}\) tiene cota inferior cuando \(\exists\ b \in \mathbb{Z} \colon\ b \leq a,\ \forall a\in \mathbb{X}\). Un conjunto tiene <strong>mínimo</strong> cuando ese \(b \in \mathbb{X}\). Por ejemplo, para \(\mathbb{X} = \{ 1, 2, 3 \}\), el mínimo es \(1\) puesto que cumple que sea menor o igual a cada elemento del conjunto y pertenece al mismo.</p>
+<h2 id="recursión-e-inducción"><a class="header" href="#recursión-e-inducción">Recursión e inducción</a></h2>
+<p>Una función está definida cuando su valor está <strong>unívocamente determinado</strong>, es decir, está definido.</p>
+<p>Para definir propiedadades \(\forall\ n \in \mathbb{N}\):</p>
+<ul>
+<li>Explítcitas \(\longrightarrow U_n = 2n + 1\)</li>
+<li>Recursivas:
+\[
+\begin{align}
+&amp; U_1 = 1 \\
+&amp; U_2 = 2 \\
+&amp; U_n = U_{n - 1} + U_{n - 2}
+\end{align}
+\]</li>
+</ul>
+<h3 id="sumatoria"><a class="header" href="#sumatoria">Sumatoria</a></h3>
+<p>Estas expresiones son equivalentes:</p>
+<p>\[
+1 + 2 + 3 + \cdots + n = \sum_{i = 1}^{n}i
+\]</p>
+<p>Por lo que definimos la sumatoria como:</p>
+<p>\[
+a_1 + a_2 + \cdots + a_n = \sum_{i = 1}^{n}a_i
+\]</p>
+<p>Y podemos ver que la sumatoria se reutiliza en sí misma:</p>
+<p>\[
+\sum_{i = 1}^{n}a_i = \sum_{i = 1}^{n - 1}a_i + a_n
+\]</p>
+<p>Pero podemos sustituirla por otra expresión equivalente:</p>
+<p>\[
+\sum_{i = 1}^{n}i = \frac{n(n + 1)}{2}
+\]</p>
+<h3 id="productoria"><a class="header" href="#productoria">Productoria</a></h3>
+<p>Al igual que con la sumatoria, la productoria equivale de manera general a:</p>
+<p>\[
+a_1 \times a_2 \times a_3 \times \cdots \times a_n = \prod_{i = 1}^{n}i
+\]</p>
+<p>Y que, a su vez, podemos reemplazarla por una expresión equivalente, como es el caso del <strong>factorial</strong>:</p>
+<p>\[
+\prod_{i = 1}^{n}i = i!
+\]</p>
+<p>Definido recursivamente por:</p>
+<p>\[
+\prod_{i = 1}^{n}i = \prod_{i = 1}^{n - 1}i \times n
+\]</p>
+<p>Por ejemplo:</p>
+<p>\[
+\begin{align}
+\prod_{i = 1}^{3}i &amp;= \prod_{i = 1}^{2}i \times 3 \\
+\prod_{i = 1}^{3}i &amp;= \prod_{i = 1}^{1}i \times 2 \times 3 \\
+\prod_{i = 1}^{3}i &amp;= 1 \times 2 \times 3 \\
+\prod_{i = 1}^{3}i &amp;= 6 = 3! \\
+\end{align}
+\]</p>
+<h3 id="inducción"><a class="header" href="#inducción">Inducción</a></h3>
+<p>Sea \(P(n)\) una propiedad para \(n \in \mathbb{N}\), entonces:</p>
+<ul>
+<li>\(P(1)\) es verdadera <strong>(Caso base)</strong></li>
+<li>\(P(k)\) es verdadera \(\implies P(k + 1)\) es verdadera para \(k \in \mathbb{N}\) <strong>(Caso inductivo)</strong></li>
+</ul>
+<p>Con la inducción buscamos generalizar una propiedad para todos los elementos de un conjunto, usualmente los naturales.</p>
+<p>Por ejemplo, tomando en cuenta la sumatoria definida anteriormente por:</p>
+<p>\[\sum_{i = 1}^{n}i = \frac{n(n + 1)}{2} \quad n \in \mathbb{N} \]</p>
+<p>Veremos que se cumple el caso base para \(i = 1\)</p>
+<p>\[
+\begin{align}
+\sum_{i = 1}^{1}i &amp;= \frac{1(1 + 1)}{2} \\
+1 &amp;= \frac{2}{2} \\
+1 &amp;= 1
+\end{align}
+\]</p>
+<p>Entonces, plantearemos nuestra <strong>hipótesis inductiva</strong> para \(k \in \mathbb{N}\), cumpliendo que \(P(k) \implies P(k + 1)\):</p>
+<p>\[
+\left[ \sum_{i = 1}^{k}i = \frac{k(k + 1)}{2} \right] \space (H.I.)
+\]</p>
+<p>Y, reemplazando \(k\) por \(k + 1\), obtendremos que queremos probar que:</p>
+<p>\[
+\sum_{i = 1}^{k + 1}i = \frac{(k + 1)(k + 2)}{2}
+\]</p>
+<p>Luego:</p>
+<p>\[
+\begin{align}
+\sum_{i = 1}^{k + 1}i &amp;= \sum_{i = 1}^{k}i + (k + 1) \\
+\sum_{i = 1}^{k + 1}i &amp;= \frac{k(k + 1)}{2} + (k + 1) \quad (H.I.) \\
+\sum_{i = 1}^{k + 1}i &amp;= \frac{k(k + 1) + 2(k + 1)}{2} \\
+\sum_{i = 1}^{k + 1}i &amp;= \frac{(k + 1)(k + 2)}{2}
+\end{align}
+\]</p>
+<p>Por lo tanto, se demuestra \(P(k + 1)\) y se verifica la propiedad por inducción para \(k \in \mathbb{N}\).</p>
+<p>También encontramos la <strong>inducción corrida</strong>, que involucra a \(k \in \mathbb{N}_0\) y comprueba que la propiedad vale para el anterior de un número en \(\mathbb{N_0}\). Por otro lado, la <strong>inducción fuerte</strong>, busca verificar la propiedad para cualquier entero, de la forma en que:</p>
+<p>Dado un entero cualquiera \(n_0\) y sea \(Z_{\geq n_0}\) el conjunto de enteros tal que \(n \geq n_0\), (S\) es un subconjunto de \(Z_{\geq n_0}\) que satisface:</p>
+<ul>
+<li>\(n_0 \in S\)</li>
+<li>\(h \in S \implies \forall\ h \in n_0 \leq h \leq k \implies k + 1 \in S \)</li>
+</ul>
+<p>Por lo que generalizamos para \(n_0 \in \mathbb{N}\) y una propiedad \(P(n_0)\) definida \(\forall n \geq n_0\):</p>
+<ul>
+<li>\(P(n_0)\) es verdadera.</li>
+<li>\(P(k)\) es verdadera \(\forall n_0 \leq h \leq k \implies P(k + 1)\) es verdadera.</li>
+</ul>
+<p>Por ejemplo:</p>
+<p>\[
+\begin{align}
+U_1 &amp;= 3 \\
+U_2 &amp;= 5 \\
+U_n &amp;= 3U_{n - 1} - 2U_{n - 2} \quad \forall \space n \geq 3
+\end{align}
+\]</p>
+<p>En este caso, deberemos probar \(P(n)\) para \(n = 1\) y para \(n = 2\), debido a que ambos conforman nuestros casos bases de los que depende la definición recursiva. Para dejar esto en claro, al encontrar nuestro supuesto que queremos probar, además de definir nuestra hipótesis inductiva para \(k\), deberemos hacerlo para \(h\) de modo que la propiedad se defina para el rango \(n_0 \leq h \leq k\):</p>
+<p>\[
+n_0 = 1 \quad k \geq 1 \quad U_k = 2^k + 1 \quad U_h = 2^h + 1 \quad (n_0) \space 1 \leq h \leq k
+\]</p>
+<h2 id="conteo"><a class="header" href="#conteo">Conteo</a></h2>
+<p>Un conjunto \(X\) es finito cuando sus elementos se pueden <strong>contar</strong>, es decir, se pueden ordenar y hay uno final. Se define por:</p>
+<p>\[
+\exists \space f \colon X \rightarrow \{1, \dots, n\} \space \text{biyectiva}
+\]</p>
+<p>Y llamaremos <strong>cardinal</strong> a la cantidad de elementos de \(X\) denotada por \(|X| = n\)</p>
+<h3 id="principio-de-adición"><a class="header" href="#principio-de-adición">Principio de adición</a></h3>
+<p>Para \(A, B\) conjuntos finitos y disjuntos (es decir, \(A \cap B = \emptyset \)), entonces:</p>
+<p>\[
+|A \cup B| = |A| + |B| \implies |A_1 \dots \cup A_n| = |A_1| + \dots + |A_n|
+\]</p>
+<h3 id="principio-de-multiplicación"><a class="header" href="#principio-de-multiplicación">Principio de multiplicación</a></h3>
+<p>Para \(A, B\) conjuntos finitos y disjuntos definimos el producto cartesiano de \(A \space \text{por} \space B\) como \(A \times B\) y generalizamos:</p>
+<p>\[
+A \times B = \{(a, b) \colon a \in A \land b \in B\} \implies |A \times B| = |A| \times |B|
+\]</p>
+<h3 id="selecciones-ordenadas-con-repetición"><a class="header" href="#selecciones-ordenadas-con-repetición">Selecciones ordenadas con repetición</a></h3>
+<p>Para un conjunto \(X\) con \(n\) elementos, si queremos formar grupos de \(m\) elementos, generalizamos \(n^m\). Por ejemplo:</p>
+<p>Para \(X = \{1, 2, 3, 4\}\), si queremos formar grupos de \(2\) elementos, entendemos \(4^2 = 16\) combinaciones ordenadas con repetición.</p>
+<h3 id="selecciones-ordenadas-sin-repetición"><a class="header" href="#selecciones-ordenadas-sin-repetición">Selecciones ordenadas sin repetición</a></h3>
+<p>Con la misma idea pero ahora sin tener en cuenta las repeticiones de los mismos elementos, principalmente podríamos entender que hay \(|X|!\) formas de ordenarlos. Pero, a través de la definición general:</p>
+<p>\[
+\begin{align}
+&amp; A = \{a_{i_1}, a_{i_2}, \dots, a_{i_m}\} \\
+&amp; |A| = n \implies n(n - 1)(n - 2) \dots (n - (m - 1)) \quad n \geq m
+\end{align}
+\]</p>
+<p>Podemos determinar que enrealidad, la fórmula para obtener selecciones ordenadas de \(m\) elementos de un conjunto con \(n\) elementos es:</p>
+<p>\[
+\frac{n!}{(n - m)!}
+\]</p>
+<blockquote>
+<p>Observación: para \(n = m\), las selecciones ordenadas sin repetición toman la forma de \(n!\), debido a que comprendemos las <strong>permutaciones</strong> entre los elementos del conjunto. Las permutaciones son los intercambios de posición entre los elementos, ya que en este tipo de selección si nos importa el orden. Para desestimarlas, deberemos contar la cantidad de permutaciones de un elemento y dividir a \(n!\) por este, por ejemplo:
+\[
+X = \{1, 2, 3, 3, 3\} \implies \frac{5!}{3!}
+\]</p>
+</blockquote>
+<h3 id="selecciones-sin-orden"><a class="header" href="#selecciones-sin-orden">Selecciones sin orden</a></h3>
+<p>Podemos encontrar la cantidad de subconjuntos de un conjunto al calcular \(2^{|X|}\), tomando el \(2\) ya que un elemento <strong>puede o no</strong> estar en el subconjunto. Para desestimar las permutaciones entre los elementos, utilizaremos la cantidad de elementos del subconjunto generado, generalizando en:</p>
+<p>\[
+\frac{n!}{(n - m)!m!}
+\]</p>
+<p>Definimos también al <strong>número combinatorio</strong> (o coeficiente binomial) por:</p>
+<p>\[
+\binom{n}{m} = \frac{n!}{(n - m)!m!}
+\]</p>
+<p>Que cumple con las siguientes propiedades:</p>
+<p>\[
+\begin{align}
+&amp; (1) \quad \binom{n}{m} = 0 \quad m &gt; n \\
+&amp; (2) \quad \binom{n}{0} = \binom{0}{0} = 1 \quad y \quad \binom{n}{1} = \binom{n}{n - 1} = n \\
+&amp; (3) \quad \binom{n}{m} = \binom{n}{n - m} \quad m, n \in \mathbb{N}_0 \colon \space m \leq n \\
+&amp; (4) \quad \binom{n + 1}{m} = \binom{n}{m - 1} + \binom{n}{m} \quad m, n \in \mathbb{N} \colon \space m \leq n
+\end{align}
+\]</p>
+<h3 id="teorema-del-binomio"><a class="header" href="#teorema-del-binomio">Teorema del binomio</a></h3>
+<p>Si \(n \in \mathbb{N}\) se cumple \(\forall \space a, b \in \mathbb{R}\)</p>
+<p>\[
+\begin{align}
+(a + b)^2 &amp;= \sum_{i = 0}^{n} \binom{n}{i} a^{n - i}b^{i} \\
+&amp;= \binom{n}{0} a^{n}b^0 + \binom{n}{1} a^{n - 1}b + \dots + \binom{n}{n - 1} a^{1}b^{n - 1} + \binom{n}{n} a^{0}b^{n}
+\end{align}
+\]</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script>
+        window.addEventListener('load', function() {
+            MathJax.Hub.Register.StartupHook('End', function() {
+                window.setTimeout(window.print, 100);
+            });
+        });
+        </script>
+
+    </div>
+    </body>
+</html>
